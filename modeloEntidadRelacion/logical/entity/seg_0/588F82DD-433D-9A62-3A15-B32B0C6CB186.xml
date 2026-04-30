@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="588F82DD-433D-9A62-3A15-B32B0C6CB186" name="ORGANIZADOR_EVENTO">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:36:17 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_organizador" id="8792C57C-8B48-C76A-5AC7-1371FA2D12AE">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:36:43 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_evento" id="BEE23922-E459-52EC-B6E2-EAC12EADEA5C">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:37:14 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id" id="1FE52A85-ACCC-0BDC-66D0-3A96A10ED051">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:38:02 UTC</createdTime>
+<generatorID>6C6A4F7C-293D-C3D6-631B-3747CB5220C0</generatorID>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<referedAttribute>856C83B4-890F-6713-3019-D78455EBF617</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Id2" id="37089E1E-CFEE-ABEA-14FE-E8137DF47214">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:38:19 UTC</createdTime>
+<generatorID>6A38E305-1406-5A81-6AA8-75EA378E1B47</generatorID>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<referedAttribute>1D493068-2D40-F14C-42DD-E1C5DFDDF5DA</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8F2AA0C3-6612-F45D-05B4-29736A8E2735" name="ORGANIZADOR_EVENTO PK">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:37:34 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>BEE23922-E459-52EC-B6E2-EAC12EADEA5C</attributeRef>
+<attributeRef>8792C57C-8B48-C76A-5AC7-1371FA2D12AE</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

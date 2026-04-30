@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="modeloEntidadRelacion" id="201AF97B-542B-AC91-6869-BAB47AD0E732" version="3.5">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:04:27 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>201AF97B-542B-AC91-6869-BAB47AD0E732</designId>
+</OSDM_Design>

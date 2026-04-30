@@ -1,0 +1,117 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4A191A7D-3DE1-0986-03E0-33C107F546CE" name="PROFESOR">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:10:10 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id" id="856C83B4-890F-6713-3019-D78455EBF617">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:18:03 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="first_name " id="E34BAD2D-6B06-C485-8B74-40B702F68AE9">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:18:13 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="last_name" id="BF86214C-78B0-2AA7-590B-6EC294BC32DE">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:18:25 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="email" id="6C2FBB3B-3F89-EE3F-151C-779F8A443F4F">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:18:34 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nombre_facultad" id="79B99C7E-E8A0-A3AD-3393-274771653A87">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:18:42 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="departamento_academico" id="D5C780D6-FF4E-6BC8-B043-F5665A313DF8">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:19:27 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="area_especializacion" id="83547704-F021-DA83-1629-C5410004A326">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:19:44 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F2ACD587-EA49-C35D-A504-B89DC9264CE6" name="PROFESOR PK">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:20:17 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>856C83B4-890F-6713-3019-D78455EBF617</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

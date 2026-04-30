@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Relation_5" directorySegmentName="seg_0" id="7C1DD88C-0663-5F3F-082C-031A8554BC58">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:39:41 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<sourcePk>8F2AA0C3-6612-F45D-05B4-29736A8E2735</sourcePk>
+<identifying>false</identifying>
+<nameOnSource>organiza eventos</nameOnSource>
+<nameOnTarget>son organizados</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>588F82DD-433D-9A62-3A15-B32B0C6CB186</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>D25D9B3E-EF9B-354B-1019-4D22EC9D596E</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

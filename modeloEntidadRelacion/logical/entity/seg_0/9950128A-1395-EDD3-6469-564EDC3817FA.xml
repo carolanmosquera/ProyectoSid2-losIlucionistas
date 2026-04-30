@@ -1,0 +1,103 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="9950128A-1395-EDD3-6469-564EDC3817FA" name="LIDER_ESTUDIANTIL">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:10:35 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id " id="E08EEC6A-B296-001B-4AA8-C8F951C5A767">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:21:11 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="código_estudiantil" id="4A49F2A2-E0A2-8508-BDC8-E83EED1C4136">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:21:29 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="first_name " id="5A5A61A2-976C-9632-20EF-19BE7A585529">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:22:01 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="last_name" id="A59403BD-729F-AC01-50E6-EB5C4BFEAF7E">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:22:13 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="programa_academico" id="C97A6396-C6C8-5501-6B5B-B3B086237E52">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:22:26 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="semestre" id="5E7D4391-D8D7-9A40-807F-FF769EEF7271">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:22:41 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="grupo_asociacion" id="CDCB5742-2C08-E0AD-0CA8-CAB819808B9A">
+<createdBy>carol</createdBy>
+<createdTime>2026-04-26 16:23:06 UTC</createdTime>
+<ownerDesignName>modeloEntidadRelacion</ownerDesignName>
+<engineerTo>
+<item key="FA09620D-E81B-BE20-ACDE-DA270EAFE531" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>
