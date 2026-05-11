@@ -1,0 +1,11 @@
+[{
+  "_id": "64a1f2b3c8e4d50012ab3c01",
+  "created_at": "2024-03-15T10:30:00.000Z",
+  "institutional_email": "juan.garcia@universidad.edu.co",
+  "institutional_id": "A00405277",
+  "last_login": "2025-04-28T08:15:00.000Z",
+  "password_hash": "$2b$10$X9vQk3LmNpRwTuYzAbCdEfGhIjKlMnOpQrStUvWxYz",
+  "role_id": "64a1f2b3c8e4d50012ab3c99",
+  "status": "active",
+  "user_type": "student"
+}]

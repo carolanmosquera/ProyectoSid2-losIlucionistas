@@ -1,0 +1,13 @@
+[{
+  "_id": "64c3f4d5ea06f70234cd5e03",
+  "description": "Asociación encargada de coordinar los eventos deportivos del campus.",
+  "inCharge_students": [
+    {
+      "student_id": "64a1f2b3c8e4d50012ab3c01"
+    },
+    {
+      "student_id": "64a1f2b3c8e4d50012ab3c02"
+    }
+  ],
+  "name": "Deportes Univalle"
+}]

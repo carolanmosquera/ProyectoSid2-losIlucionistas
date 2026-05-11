@@ -1,0 +1,53 @@
+[{
+  "_id": "64b2e3c4d9f5e60123bc4d02",
+  "available_slots": 30,
+  "created_at": "2025-01-10T09:00:00.000Z",
+  "description": "Torneo interuniversitario de fútbol sala para estudiantes de pregrado.",
+  "end_date": "2025-05-20T18:00:00.000Z",
+  "event_code": "EVT-2025-FS-001",
+  "event_details": {
+    "helped_community": "Fomento del deporte universitario",
+    "logistic_info": "Canchas cubiertas bloque D",
+    "min_semester": 2,
+    "player_per_team": 5,
+    "prerequisites": "Paz y salvo académico",
+    "reason": "Semana deportiva universitaria",
+    "required_materials": [
+      "guayos",
+      "espinilleras"
+    ],
+    "speaker_info": {
+      "membership": "Federación Universitaria",
+      "name": "Carlos Mendoza",
+      "profile": "Árbitro certificado FIFA"
+    }
+  },
+  "sport_type": "fútbol sala",
+  "teams_quantity": 8,
+  "total_hours": "6",
+  "tournament_format": [
+    "grupos",
+    "eliminatorias"
+  ],
+  "tournament_type": "copa",
+  "inscriptions": [
+    {
+      "attended": false,
+      "cancelled_at": null,
+      "enrolled_at": "2025-04-01T14:00:00.000Z",
+      "institutional_id": "A00405277",
+      "status": "active",
+      "student_id": "64a1f2b3c8e4d50012ab3c01"
+    }
+  ],
+  "location": "Campus Norte, Bloque D",
+  "max_slots": 40,
+  "organization_id": "64c3f4d5ea06f70234cd5e03",
+  "organizer_id": "64a1f2b3c8e4d50012ab3c88",
+  "organizer_type": "staff",
+  "start_date": "2025-05-18T08:00:00.000Z",
+  "status": "published",
+  "title": "Copa Interfacultades Fútbol Sala 2025",
+  "type": "sports",
+  "updated_at": "2025-04-20T11:00:00.000Z"
+}]

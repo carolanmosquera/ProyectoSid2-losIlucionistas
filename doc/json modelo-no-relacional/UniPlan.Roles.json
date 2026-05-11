@@ -1,0 +1,20 @@
+[{
+  "_id": "64a1f2b3c8e4d50012ab3c99",
+  "description": "Rol para estudiantes con acceso básico a la plataforma.",
+  "name": "student",
+  "permissions": [
+    {
+      "actions": [
+        "read",
+        "create"
+      ],
+      "resource": "events"
+    },
+    {
+      "actions": [
+        "read"
+      ],
+      "resource": "organizations"
+    }
+  ]
+}]
