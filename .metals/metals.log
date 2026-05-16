@@ -1,0 +1,274 @@
+2026.05.11 14:20:02 INFO  Started: Metals version 1.6.7 in folders 'C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid' for client Visual Studio Code 1.119.0.
+2026.05.11 14:20:02 INFO  Memory monitor started
+2026.05.11 14:20:03 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.05.11 14:20:03 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:03 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:07 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:07 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:09 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:09 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:09 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:09 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:11 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:11 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:11 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:12 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:11 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:12 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java
+2026.05.11 14:20:12 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:14 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:17 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:17 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:17 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:17 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:21 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:21 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:21 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:21 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:21 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:21 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:22 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java
+2026.05.11 14:20:22 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:22 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:22 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:22 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:22 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:23 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:26 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:26 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:26 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:26 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:26 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:27 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java
+2026.05.11 14:20:27 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:27 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:27 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:27 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:27 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:32 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:32 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:32 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:32 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:32 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:33 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java
+2026.05.11 14:20:32 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:33 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+may 11, 2026 2:20:33 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 74
+2026.05.11 14:20:33 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:33 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:33 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:34 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:34 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:37 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:37 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:37 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:37 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:37 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:38 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java
+2026.05.11 14:20:38 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:38 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:38 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:38 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:39 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:39 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:39 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:39 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:41 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:41 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:41 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:42 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:42 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:42 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:46 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:46 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:46 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:47 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:46 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:47 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java
+2026.05.11 14:20:47 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:52 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:52 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:52 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:52 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:53 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:53 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:53 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:54 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:54 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:54 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:54 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:56 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:56 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:56 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:57 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:58 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:20:58 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java
+2026.05.11 14:20:58 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:21:01 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:21:01 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:21:01 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:21:02 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:21:02 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:21:02 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:21:03 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:21:03 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:21:04 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:21:04 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java
+2026.05.11 14:21:04 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:21:55 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:21:55 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:21:57 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:21:58 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:21:59 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java
+2026.05.11 14:22:35 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:22:36 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java
+2026.05.11 14:22:36 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:22:40 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:22:40 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:22:43 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:22:43 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:22:43 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:22:44 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:22:44 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:22:49 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:22:54 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:23:02 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:23:11 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:11 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:11 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:11 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:12 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:12 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java
+2026.05.11 14:23:12 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:13 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:13 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:22 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:22 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:22 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java
+2026.05.11 14:23:22 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:23 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:23 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:23 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:23 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:24 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java
+2026.05.11 14:23:24 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:25 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:25 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:26 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java
+2026.05.11 14:23:26 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:26 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:26 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:26 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:27 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:27 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:27 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:27 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:32 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:32 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:32 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:35 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:35 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:35 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:35 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+may 11, 2026 2:23:36 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 250
+2026.05.11 14:23:36 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java
+2026.05.11 14:23:36 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:37 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:37 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:40 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:40 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:40 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:40 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:40 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:41 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java
+2026.05.11 14:23:41 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:44 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:44 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:45 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java
+2026.05.11 14:23:45 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:46 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:23:46 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java
+2026.05.11 14:23:46 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:23:48 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:23:48 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiStudent.java. Using fallback presentation compiler.
+2026.05.11 14:23:50 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:50 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java
+2026.05.11 14:23:50 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:51 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:51 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:52 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:53 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java
+2026.05.11 14:23:53 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:54 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:54 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:54 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:55 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:55 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:55 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:55 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:23:56 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:00 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:00 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:00 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java
+2026.05.11 14:24:01 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:01 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:01 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:02 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:02 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:03 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java
+2026.05.11 14:24:03 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:12 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:12 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:13 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:12 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:13 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java
+2026.05.11 14:24:13 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:14 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:14 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:14 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:14 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:15 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:15 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:15 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:15 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java
+2026.05.11 14:24:16 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:17 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:17 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:17 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:18 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:19 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:19 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:19 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:19 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:19 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:20 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+may 11, 2026 2:24:20 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 353
+2026.05.11 14:24:20 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:20 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:23 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:23 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:23 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:24 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:23 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:24:24 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java
+2026.05.11 14:24:24 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\src\main\java\co\icesi\UniPlan\model\IcesiEnrollment.java. Using fallback presentation compiler.
+2026.05.11 14:32:56 INFO  Shutting down server
+2026.05.11 14:32:56 INFO  Memory monitor stopped
+2026.05.11 14:32:56 INFO  shutting down Metals
+2026.05.11 14:32:56 INFO  Exiting server
+2026.05.11 14:32:56 ERROR Unexpected error initializing server: 
+org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Request window/showMessageRequest failed with message: Canceled
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:214)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:198)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.run(Thread.java:1583)
+
