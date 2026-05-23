@@ -272,3 +272,88 @@ org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Request window/showMessageRequ
 	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
 	at java.lang.Thread.run(Thread.java:1583)
 
+2026.05.21 08:11:30 INFO  Started: Metals version 1.6.7 in folders 'C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas' for client Visual Studio Code 1.120.0.
+2026.05.21 08:11:30 INFO  Memory monitor started
+2026.05.21 08:11:35 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.05.21 08:11:35 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\model\mongo\Organization.java. Using fallback presentation compiler.
+may 21, 2026 8:11:38 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 2
+2026.05.21 08:11:38 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\model\mongo\Organization.java. Using fallback presentation compiler.
+may 21, 2026 8:11:39 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 7
+may 21, 2026 8:11:39 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 5
+may 21, 2026 8:11:39 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 1
+2026.05.21 08:11:38 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\model\mongo\Organization.java. Using fallback presentation compiler.
+2026.05.21 08:11:38 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\model\Subject.java. Using fallback presentation compiler.
+may 21, 2026 8:11:39 A. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 10
+2026.05.21 08:11:38 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\model\Subject.java. Using fallback presentation compiler.
+2026.05.21 08:11:39 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\model\Subject.java. Using fallback presentation compiler.
+2026.05.21 08:11:41 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\model\Subject.java
+2026.05.21 08:11:41 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\model\mongo\Organization.java
+2026.05.21 08:11:44 INFO  time: code lens generation in 2.99s
+2026.05.21 08:11:44 INFO  time: code lens generation in 3.06s
+2026.05.21 08:11:49 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\model\Subject.java. Using fallback presentation compiler.
+2026.05.21 08:13:19 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\model\mongo\EventDetails.java. Using fallback presentation compiler.
+2026.05.21 08:13:19 WARN  no build target for: C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\model\mongo\EventDetails.java
+2026.05.21 08:13:19 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\model\mongo\EventDetails.java. Using fallback presentation compiler.
+2026.05.21 08:13:19 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\model\mongo\EventDetails.java. Using fallback presentation compiler.
+2026.05.21 08:13:21 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\model\mongo\EventDetails.java. Using fallback presentation compiler.
+2026.05.21 08:14:52 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\model\mongo\EventDetails.java. Using fallback presentation compiler.
+2026.05.21 08:14:53 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\model\mongo\EventDetails.java. Using fallback presentation compiler.
+2026.05.21 08:30:48 INFO  Shutting down server
+2026.05.21 08:30:48 INFO  Memory monitor stopped
+2026.05.21 08:30:48 INFO  shutting down Metals
+2026.05.21 08:30:48 INFO  Exiting server
+2026.05.22 20:20:40 INFO  Started: Metals version 1.6.7 in folders 'C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas' for client Visual Studio Code 1.121.0.
+2026.05.22 20:20:41 INFO  time: initialize in 0.13s
+2026.05.22 20:20:40 INFO  Memory monitor started
+2026.05.22 20:20:48 WARN  Using H2 2.4.240 which is newer than the version Flyway has been verified with. The latest verified version of H2 is 2.3.232.
+2026.05.22 20:21:00 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\model\mongo\AppUser.java. Using fallback presentation compiler.
+2026.05.22 20:21:47 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\model\mongo\AppUser.java. Using fallback presentation compiler.
+2026.05.22 20:28:46 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\model\mongo\AppUser.java. Using fallback presentation compiler.
+2026.05.22 20:28:46 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\repository\mongo\AppUserRepository.java. Using fallback presentation compiler.
+2026.05.22 20:28:46 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\repository\mongo\AppUserRepository.java. Using fallback presentation compiler.
+2026.05.22 20:28:46 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\repository\mongo\AppUserRepository.java. Using fallback presentation compiler.
+2026.05.22 20:28:48 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\repository\mongo\AppUserRepository.java. Using fallback presentation compiler.
+2026.05.22 20:29:24 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\repository\mongo\AppUserRepository.java. Using fallback presentation compiler.
+2026.05.22 20:29:24 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\controller\MongoController.java. Using fallback presentation compiler.
+2026.05.22 20:29:26 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\controller\MongoController.java. Using fallback presentation compiler.
+may 22, 2026 8:29:26 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 25
+2026.05.22 20:29:26 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\controller\MongoController.java. Using fallback presentation compiler.
+2026.05.22 20:29:34 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\controller\MongoController.java. Using fallback presentation compiler.
+2026.05.22 20:29:36 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\controller\MongoController.java. Using fallback presentation compiler.
+2026.05.22 20:29:36 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\dto\EventStatisticsResponse.java. Using fallback presentation compiler.
+2026.05.22 20:29:36 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\dto\EventStatisticsResponse.java. Using fallback presentation compiler.
+2026.05.22 20:29:36 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\dto\EventStatisticsResponse.java. Using fallback presentation compiler.
+2026.05.22 20:30:29 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\dto\EventStatisticsResponse.java. Using fallback presentation compiler.
+2026.05.22 20:30:29 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\controller\MongoController.java. Using fallback presentation compiler.
+may 22, 2026 8:30:29 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 47
+2026.05.22 20:30:29 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\controller\MongoController.java. Using fallback presentation compiler.
+2026.05.22 20:30:29 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\controller\MongoController.java. Using fallback presentation compiler.
+2026.05.22 20:30:38 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\controller\MongoController.java. Using fallback presentation compiler.
+2026.05.22 20:30:38 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\controller\MongoController.java. Using fallback presentation compiler.
+may 22, 2026 8:30:38 P. M. org.eclipse.lsp4j.jsonrpc.RemoteEndpoint handleCancellation
+WARNING: Unmatched cancel notification for request id 70
+2026.05.22 20:35:38 INFO  no build target found for C:\Users\carol\Desktop\UNIVERSIDAD\SID2\proyectoIntegradorSid\ProyectoSid2-losIlucionistas\src\main\java\co\icesi\UniPlan\controller\MongoController.java. Using fallback presentation compiler.
+2026.05.22 20:35:48 INFO  Shutting down server
+2026.05.22 20:35:48 INFO  Memory monitor stopped
+2026.05.22 20:35:48 INFO  shutting down Metals
+2026.05.22 20:35:48 INFO  Exiting server
+2026.05.22 20:35:49 ERROR Unexpected error initializing server: 
+org.eclipse.lsp4j.jsonrpc.ResponseErrorException: Request window/showMessageRequest failed with message: Canceled
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.handleResponse(RemoteEndpoint.java:214)
+	at org.eclipse.lsp4j.jsonrpc.RemoteEndpoint.consume(RemoteEndpoint.java:198)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.handleMessage(StreamMessageProducer.java:189)
+	at org.eclipse.lsp4j.jsonrpc.json.StreamMessageProducer.listen(StreamMessageProducer.java:97)
+	at org.eclipse.lsp4j.jsonrpc.json.ConcurrentMessageProcessor.run(ConcurrentMessageProcessor.java:97)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.lang.Thread.run(Thread.java:1583)
+
