@@ -1,18 +1,25 @@
+error id: file:///C:/Users/carol/Desktop/UNIVERSIDAD/SID2/proyectoIntegradorSid/ProyectoSid2-losIlucionistas/src/main/java/co/icesi/UniPlan/controller/MongoController.java
+file:///C:/Users/carol/Desktop/UNIVERSIDAD/SID2/proyectoIntegradorSid/ProyectoSid2-losIlucionistas/src/main/java/co/icesi/UniPlan/controller/MongoController.java
+### com.thoughtworks.qdox.parser.ParseException: syntax error @[37,13]
+
+error in qdox parser
+file content:
+```java
+offset: 1626
+uri: file:///C:/Users/carol/Desktop/UNIVERSIDAD/SID2/proyectoIntegradorSid/ProyectoSid2-losIlucionistas/src/main/java/co/icesi/UniPlan/controller/MongoController.java
+text:
+```scala
 package co.icesi.UniPlan.controller;
 
-import co.icesi.UniPlan.dto.EventStatisticsDetailResponse;
-import co.icesi.UniPlan.dto.RegisterExportRequest;
 import co.icesi.UniPlan.model.mongo.AppUser;
 import co.icesi.UniPlan.model.mongo.Event;
 import co.icesi.UniPlan.model.mongo.Organization;
 import co.icesi.UniPlan.model.mongo.Role;
 import co.icesi.UniPlan.repository.mongo.AppUserRepository;
 import co.icesi.UniPlan.repository.mongo.EventRepository;
-import co.icesi.UniPlan.repository.mongo.EventStatisticsRepository;
 import co.icesi.UniPlan.repository.mongo.OrganizationRepository;
 import co.icesi.UniPlan.repository.mongo.RoleRepository;
 import co.icesi.UniPlan.service.EventStatisticsService;
-import jakarta.validation.Valid;
 
 import java.time.Instant;
 import java.util.List;
@@ -38,17 +45,17 @@ public class MongoController {
     private final OrganizationRepository organizationRepository;
     private final EventStatisticsService eventStatisticsService;
 
-    public MongoController(
+    public Mo@@ngoController(
             AppUserRepository appUserRepository,
             EventRepository eventRepository,
             RoleRepository roleRepository,
-            OrganizationRepository organizationRepository,
-            EventStatisticsService eventStatisticsService) {
+            OrganizationRepository organizationRepository
+            Even) {
         this.appUserRepository = appUserRepository;
         this.eventRepository = eventRepository;
         this.roleRepository = roleRepository;
         this.organizationRepository = organizationRepository;
-        this.eventStatisticsService = eventStatisticsService;
+        this.eventStatisticsService = null;
     }
 
     @GetMapping("/appusers")
@@ -112,17 +119,43 @@ public class MongoController {
     public Organization createOrganization(@RequestBody Organization organization) {
         return organizationRepository.save(organization);
     }
-
-    @GetMapping("/events/{id}/statistics/detail")
-    public EventStatisticsDetailResponse getEventStatistics(@PathVariable String id) {
-        return eventStatisticsService.getByEventId(id);
-    }
-
-    @PostMapping("/events/{id}/statistics/exports")
-    @ResponseStatus(HttpStatus.CREATED)
-    public EventStatisticsDetailResponse registerExport(
-            @PathVariable String id,
-            @Valid @RequestBody RegisterExportRequest request) {
-        return eventStatisticsService.registerExport(id, request);
-    }
 }
+
+```
+
+```
+
+
+
+#### Error stacktrace:
+
+```
+com.thoughtworks.qdox.parser.impl.Parser.yyerror(Parser.java:2025)
+	com.thoughtworks.qdox.parser.impl.Parser.yyparse(Parser.java:2147)
+	com.thoughtworks.qdox.parser.impl.Parser.parse(Parser.java:2006)
+	com.thoughtworks.qdox.library.SourceLibrary.parse(SourceLibrary.java:232)
+	com.thoughtworks.qdox.library.SourceLibrary.parse(SourceLibrary.java:190)
+	com.thoughtworks.qdox.library.SourceLibrary.addSource(SourceLibrary.java:94)
+	com.thoughtworks.qdox.library.SourceLibrary.addSource(SourceLibrary.java:89)
+	com.thoughtworks.qdox.library.SortedClassLibraryBuilder.addSource(SortedClassLibraryBuilder.java:162)
+	com.thoughtworks.qdox.JavaProjectBuilder.addSource(JavaProjectBuilder.java:174)
+	scala.meta.internal.mtags.JavaMtags.indexRoot(JavaMtags.scala:49)
+	scala.meta.internal.metals.SemanticdbDefinition$.foreachWithReturnMtags(SemanticdbDefinition.scala:99)
+	scala.meta.internal.metals.Indexer.indexSourceFile(Indexer.scala:560)
+	scala.meta.internal.metals.Indexer.$anonfun$reindexWorkspaceSources$3(Indexer.scala:691)
+	scala.meta.internal.metals.Indexer.$anonfun$reindexWorkspaceSources$3$adapted(Indexer.scala:688)
+	scala.collection.IterableOnceOps.foreach(IterableOnce.scala:630)
+	scala.collection.IterableOnceOps.foreach$(IterableOnce.scala:628)
+	scala.collection.AbstractIterator.foreach(Iterator.scala:1313)
+	scala.meta.internal.metals.Indexer.reindexWorkspaceSources(Indexer.scala:688)
+	scala.meta.internal.metals.MetalsLspService.$anonfun$onChange$2(MetalsLspService.scala:940)
+	scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	scala.concurrent.Future$.$anonfun$apply$1(Future.scala:691)
+	scala.concurrent.impl.Promise$Transformation.run(Promise.scala:500)
+	java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	java.base/java.lang.Thread.run(Thread.java:1583)
+```
+#### Short summary: 
+
+QDox parse error in file:///C:/Users/carol/Desktop/UNIVERSIDAD/SID2/proyectoIntegradorSid/ProyectoSid2-losIlucionistas/src/main/java/co/icesi/UniPlan/controller/MongoController.java
