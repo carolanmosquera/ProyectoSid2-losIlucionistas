@@ -10,7 +10,6 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
-@ConditionalOnBean(MongoTemplate.class)
 public class RoleService {
 
     private final RoleRepository roleRepository;

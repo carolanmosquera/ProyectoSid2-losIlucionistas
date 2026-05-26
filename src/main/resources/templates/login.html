@@ -1,26 +1,389 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>UniPlan - Login</title>
-    <link rel="stylesheet" th:href="@{/css/login.css}">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>UniPlan — Ingreso</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <style>
+        :root {
+            --navy: #0d1b2a;
+            --teal: #1a936f;
+            --teal-light: #88d4ab;
+            --cream: #f5f0e8;
+            --white: #ffffff;
+            --gray: #6b7280;
+            --red: #e53e3e;
+            --border: #e2e8f0;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--cream);
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* ── Left panel ── */
+        .panel-left {
+            width: 45%;
+            background: var(--navy);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .panel-left::before {
+            content: '';
+            position: absolute;
+            top: -120px; right: -120px;
+            width: 400px; height: 400px;
+            border-radius: 50%;
+            background: var(--teal);
+            opacity: .12;
+        }
+
+        .panel-left::after {
+            content: '';
+            position: absolute;
+            bottom: -80px; left: -80px;
+            width: 280px; height: 280px;
+            border-radius: 50%;
+            background: var(--teal-light);
+            opacity: .08;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            z-index: 1;
+        }
+
+        .brand-icon {
+            width: 42px; height: 42px;
+            background: var(--teal);
+            border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.4rem;
+        }
+
+        .brand-name {
+            font-family: 'Playfair Display', serif;
+            color: var(--white);
+            font-size: 1.6rem;
+            letter-spacing: -.5px;
+        }
+
+        .left-body {
+            z-index: 1;
+        }
+
+        .left-body h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--white);
+            font-size: 2.6rem;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+        }
+
+        .left-body h1 span { color: var(--teal-light); }
+
+        .left-body p {
+            color: #94a3b8;
+            font-size: .95rem;
+            line-height: 1.7;
+            max-width: 340px;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 2rem;
+            z-index: 1;
+        }
+
+        .stat { }
+
+        .stat-num {
+            font-family: 'Playfair Display', serif;
+            color: var(--teal-light);
+            font-size: 1.8rem;
+        }
+
+        .stat-label {
+            color: #64748b;
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .06em;
+        }
+
+        /* ── Right panel ── */
+        .panel-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 2.75rem 2.5rem;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 4px 40px rgba(0,0,0,.07);
+        }
+
+        .tab-row {
+            display: flex;
+            border-radius: 10px;
+            background: var(--cream);
+            padding: 4px;
+            margin-bottom: 2rem;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: .55rem;
+            border: none;
+            background: transparent;
+            border-radius: 8px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: .9rem;
+            font-weight: 500;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all .2s;
+        }
+
+        .tab-btn.active {
+            background: var(--white);
+            color: var(--navy);
+            box-shadow: 0 1px 6px rgba(0,0,0,.1);
+        }
+
+        /* forms */
+        .form-section { display: none; }
+        .form-section.active { display: block; }
+
+        .card h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--navy);
+            font-size: 1.5rem;
+            margin-bottom: .4rem;
+        }
+
+        .card p.sub {
+            color: var(--gray);
+            font-size: .88rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .field { margin-bottom: 1.1rem; }
+
+        .field label {
+            display: block;
+            font-size: .82rem;
+            font-weight: 600;
+            color: var(--navy);
+            margin-bottom: .4rem;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+        }
+
+        .field input {
+            width: 100%;
+            padding: .7rem 1rem;
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: .95rem;
+            color: var(--navy);
+            background: var(--cream);
+            transition: border-color .2s, background .2s;
+            outline: none;
+        }
+
+        .field input:focus {
+            border-color: var(--teal);
+            background: var(--white);
+        }
+
+        .field input.error { border-color: var(--red); }
+
+        .field-error {
+            font-size: .78rem;
+            color: var(--red);
+            margin-top: .3rem;
+        }
+
+        .btn-primary {
+            width: 100%;
+            padding: .8rem;
+            background: var(--teal);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background .2s, transform .1s;
+            margin-top: .5rem;
+        }
+
+        .btn-primary:hover { background: #157a5c; transform: translateY(-1px); }
+        .btn-primary:active { transform: translateY(0); }
+
+        .alert {
+            padding: .75rem 1rem;
+            border-radius: 8px;
+            font-size: .88rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .alert-error { background: #fef2f2; color: var(--red); border: 1px solid #fecaca; }
+        .alert-success { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
+
+        @media (max-width: 768px) {
+            body { flex-direction: column; }
+            .panel-left { width: 100%; padding: 2rem; min-height: 220px; }
+            .left-body h1 { font-size: 1.8rem; }
+            .stats-row { display: none; }
+        }
+    </style>
 </head>
 <body>
-    <div class="login-box">
-        <h2>UniPlan</h2>
 
-        <div th:if="${param.error}" class="error">
-            Usuario o contraseña incorrectos.
-        </div>
-        <div th:if="${param.logout}" class="success">
-            Sesión cerrada correctamente.
-        </div>
-
-        <form th:action="@{/login}" method="post">
-            <input type="text" name="username" placeholder="Usuario" required />
-            <input type="password" name="password" placeholder="Contraseña" required />
-            <button type="submit">Ingresar</button>
-        </form>
+<!-- Left decorative panel -->
+<div class="panel-left">
+    <div class="brand">
+        <div class="brand-icon">📅</div>
+        <span class="brand-name">UniPlan</span>
     </div>
+
+    <div class="left-body">
+        <h1>Conecta con los<br/><span>eventos</span> de<br/>tu universidad</h1>
+        <p>Talleres, charlas, torneos y actividades culturales — todo en un solo lugar para la comunidad Icesi.</p>
+    </div>
+
+    <div class="stats-row">
+        <div class="stat">
+            <div class="stat-num">120+</div>
+            <div class="stat-label">Eventos</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">3.4k</div>
+            <div class="stat-label">Estudiantes</div>
+        </div>
+        <div class="stat">
+            <div class="stat-num">4</div>
+            <div class="stat-label">Tipos</div>
+        </div>
+    </div>
+</div>
+
+<!-- Right form panel -->
+<div class="panel-right">
+    <div class="card">
+        <div class="tab-row">
+            <button class="tab-btn active" onclick="showTab('login')">Ingresar</button>
+            <button class="tab-btn" onclick="showTab('register')">Registrarse</button>
+        </div>
+
+        <!-- ── LOGIN ── -->
+        <div id="tab-login" class="form-section active">
+            <h2>Bienvenido</h2>
+            <p class="sub">Ingresa con tu cuenta institucional</p>
+
+            <!-- Error de Thymeleaf/Spring Security -->
+            <div th:if="${param.error}" class="alert alert-error">
+                Correo o contraseña incorrectos. Inténtalo de nuevo.
+            </div>
+            <div th:if="${param.logout}" class="alert alert-success">
+                Sesión cerrada correctamente.
+            </div>
+
+            <form th:action="@{/login}" method="post">
+
+                <div class="field">
+                    <label for="username">Usuario</label>
+                    <input type="text" id="username" name="username"
+                           placeholder="ej: testUser" required/>
+                </div>
+
+                <div class="field">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password"
+                           placeholder="••••••••" required/>
+                </div>
+
+                <button type="submit" class="btn-primary">Ingresar</button>
+            </form>
+        </div>
+
+        <!-- ── REGISTER ── -->
+        <div id="tab-register" class="form-section">
+            <h2>Crear cuenta</h2>
+            <p class="sub">Regístrate con tu código estudiantil</p>
+
+            <div th:if="${registerError}" class="alert alert-error"
+                 th:text="${registerError}">Error al registrar.</div>
+            <div th:if="${registerSuccess}" class="alert alert-success">
+                ¡Cuenta creada! Ya puedes ingresar.
+            </div>
+
+            <!--
+                POST /api/appusers/students
+                Body: AppUserRegistrationRequest
+                      { institutionalId, institutionalEmail, passwordHash, roleId, userType }
+            -->
+            <!--
+                Este form apunta a un endpoint MVC en LoginController:
+                @PostMapping("/register")
+                que llama internamente a appUserService.registerStudent(request)
+                y redirige a /login?registered
+            -->
+            <form th:action="@{/register}" method="post">
+                <input type="hidden" name="userType" value="STUDENT"/>
+
+                <div class="field">
+                    <label for="regId">Código estudiantil</label>
+                    <input type="text" id="regId" name="institutionalId"
+                           placeholder="A00123456" required/>
+                </div>
+
+                <div class="field">
+                    <label for="regEmail">Correo institucional</label>
+                    <input type="email" id="regEmail" name="institutionalEmail"
+                           placeholder="ej: testUser" required/>
+                </div>
+
+                <div class="field">
+                    <label for="regPwd">Contraseña</label>
+                    <input type="password" id="regPwd" name="passwordHash"
+                           placeholder="Mínimo 8 caracteres" required/>
+                </div>
+
+                <button type="submit" class="btn-primary">Crear cuenta</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showTab(tab) {
+        document.querySelectorAll('.form-section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById('tab-' + tab).classList.add('active');
+        event.currentTarget.classList.add('active');
+    }
+</script>
 </body>
 </html>

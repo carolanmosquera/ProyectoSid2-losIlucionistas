@@ -17,7 +17,6 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
-@ConditionalOnBean(MongoTemplate.class)
 public class EventStatisticsService {
 
     private final EventStatisticsRepository statisticsRepository;
