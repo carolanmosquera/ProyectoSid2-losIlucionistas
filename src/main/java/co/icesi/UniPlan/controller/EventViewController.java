@@ -17,6 +17,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 @Controller
 public class EventViewController {
 
@@ -35,6 +41,43 @@ public class EventViewController {
         this.userRepository = userRepository;
     }
 
+    /**
+     * Parsea fechas en cualquier formato que pueda llegar:
+     *   "2025-06-01T10:00"       → datetime-local sin segundos (el más común)
+     *   "2025-06-01T10:00:00"    → datetime-local con segundos
+     *   "2025-06-01T10:00:00Z"   → ISO-8601 completo (si el JS logró convertirlo)
+     */
+    private Instant parseDate(String value) {
+        if (value == null || value.isBlank()) {
+            throw new IllegalArgumentException("La fecha no puede estar vacía");
+        }
+        // 1) Ya tiene Z → es ISO completo, parsear directo
+        if (value.endsWith("Z")) {
+            return Instant.parse(value);
+        }
+        // 2) Tiene zona (+HH:mm) → OffsetDateTime
+        if (value.contains("+") || (value.length() > 19 && value.charAt(19) == '-')) {
+            return Instant.parse(value.length() == 16
+                    ? value + ":00Z"
+                    : value + "Z");
+        }
+        // 3) Sin zona — formato datetime-local: "yyyy-MM-ddTHH:mm" o "yyyy-MM-ddTHH:mm:ss"
+        // Se usa la zona de Colombia (UTC-5) para que la fecha no quede 5h atrás
+        ZoneOffset colombiaOffset = ZoneOffset.of("-05:00");
+        try {
+            return LocalDateTime.parse(value, DateTimeFormatter.ISO_LOCAL_DATE_TIME)
+                    .toInstant(colombiaOffset);
+        } catch (DateTimeParseException e) {
+            // "2025-06-01T10:00" (sin segundos)
+            return LocalDateTime.parse(value, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
+                    .toInstant(colombiaOffset);
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // EVENT DETAIL
+    // ─────────────────────────────────────────────────────────────────────────
+
     @GetMapping("/events/{id}")
     public String eventDetail(@PathVariable String id, Authentication auth, Model model) {
         if (eventService == null) return "redirect:/home";
@@ -49,26 +92,21 @@ public class EventViewController {
                 model.addAttribute("stats", null);
             }
 
-            // 1. Obtener username de PostgreSQL (ej: "laura.h")
             String username = auth != null ? auth.getName() : null;
             AppUser currentUser = null;
             boolean isEnrolled = false;
 
             if (username != null && appUserRepository != null) {
-                // 2. Buscar en PostgreSQL para obtener el student_id real (ej: "2001")
                 User pgUser = userRepository.findByUsername(username).orElse(null);
 
                 if (pgUser != null && pgUser.getStudent() != null) {
-                    // 3. Buscar AppUser en MongoDB por el student_id de PostgreSQL
                     String studentId = pgUser.getStudent().getId();
                     currentUser = appUserRepository.findByInstitutionalId(studentId).orElse(null);
                 } else if (pgUser != null && pgUser.getEmployee() != null) {
-                    // Para empleados buscar por employee id
                     String employeeId = pgUser.getEmployee().getId();
                     currentUser = appUserRepository.findByInstitutionalId(employeeId).orElse(null);
                 }
 
-                // 4. Verificar si ya está inscrito
                 if (currentUser != null && event.getInscriptions() != null) {
                     final String appUserId = currentUser.getId();
                     final String instId = currentUser.getInstitutionalId();
@@ -124,6 +162,73 @@ public class EventViewController {
             return "redirect:/events/" + id + "/confirmed?msg=cancelled";
         } catch (Exception e) {
             return "redirect:/events/" + id + "/confirmed?err=" + e.getMessage();
+        }
+    }
+
+    // ─────────────────────────────────────────────────────────────────────────
+    // CREATE EVENT
+    // ─────────────────────────────────────────────────────────────────────────
+
+    @GetMapping("/events/create")
+    public String createEventForm(Authentication auth) {
+        if (auth == null) return "redirect:/login";
+        return "create-event";
+    }
+
+    @PostMapping("/events/create")
+    public String createEvent(
+            @RequestParam String title,
+            @RequestParam String description,
+            @RequestParam String type,
+            @RequestParam String location,
+            @RequestParam String startDate,
+            @RequestParam String endDate,
+            @RequestParam Integer maxSlots,
+            @RequestParam(required = false) String sportType,
+            @RequestParam(required = false) String tournamentType,
+            @RequestParam(required = false) Integer teamsQuantity,
+            @RequestParam(required = false) String totalHours,
+            Authentication auth,
+            Model model) {
+
+        if (eventService == null) return "redirect:/dashboard";
+
+        try {
+            String username = auth != null ? auth.getName() : null;
+            AppUser organizer = null;
+            if (username != null && appUserRepository != null) {
+                organizer = appUserRepository.findByInstitutionalEmail(username).orElse(null);
+                if (organizer == null) {
+                    User pgUser = userRepository.findByUsername(username).orElse(null);
+                    if (pgUser != null && pgUser.getEmployee() != null) {
+                        organizer = appUserRepository
+                                .findByInstitutionalId(pgUser.getEmployee().getId()).orElse(null);
+                    }
+                }
+            }
+
+            Event event = Event.builder()
+                    .title(title)
+                    .description(description)
+                    .type(type)
+                    .location(location)
+                    .startDate(parseDate(startDate))   // ← usa el helper robusto
+                    .endDate(parseDate(endDate))       // ← usa el helper robusto
+                    .maxSlots(maxSlots)
+                    .sportType(sportType)
+                    .tournamentType(tournamentType)
+                    .teamsQuantity(teamsQuantity)
+                    .totalHours(totalHours)
+                    .organizerId(organizer != null ? organizer.getId() : null)
+                    .organizerType(organizer != null ? organizer.getUserType() : null)
+                    .build();
+
+            eventService.create(event);
+            return "redirect:/dashboard?created";
+
+        } catch (Exception e) {
+            model.addAttribute("error", e.getMessage());
+            return "create-event";
         }
     }
 }

@@ -6,6 +6,7 @@ import java.time.Instant;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,47 +22,91 @@ public class HomeController {
         this.eventService = eventService;
     }
 
-    /**
-     * Catálogo de eventos con filtros opcionales.
-     * Ruta: GET /home?type=&status=&start=&end=
-     *
-     * El EventService.findAll() filtra por type, status, start, end.
-     * Si no hay filtros, devuelve todos los eventos.
-     *
-     * NOTA: los eventos en MongoDB pueden tener status "published" —
-     * el servicio debe manejar ese valor también, o actualiza los datos
-     * de prueba a "UPCOMING".
-     */
     @GetMapping("/home")
     public String home(
             @RequestParam(required = false) String type,
             @RequestParam(required = false) String status,
             @RequestParam(required = false) String start,
             @RequestParam(required = false) String end,
+            Authentication auth,
             Model model) {
+
+        if (auth != null) {
+            boolean isOrganizer = auth.getAuthorities().stream()
+                    .anyMatch(a -> {
+                        String r = a.getAuthority();
+                        return r.contains("ORGANIZER") || r.contains("ADMIN")
+                                || r.contains("PROFESSOR") || r.contains("WELFARE")
+                                || r.contains("STUDENT_LEADER") || r.equals("ROLE_EMPLOYEE");
+                    });
+            if (isOrganizer) return "redirect:/dashboard";
+        }
 
         if (eventService != null) {
             try {
                 Instant startInstant = (start != null && !start.isBlank()) ? Instant.parse(start) : null;
                 Instant endInstant   = (end   != null && !end.isBlank())   ? Instant.parse(end)   : null;
-
-                // Pasa null en status para traer TODOS los eventos sin importar el status
                 List<Event> events = eventService.findAll(type, status, startInstant, endInstant);
                 model.addAttribute("events", events);
             } catch (Exception e) {
                 model.addAttribute("events", List.of());
-                model.addAttribute("error", "Error cargando eventos: " + e.getMessage());
             }
         } else {
             model.addAttribute("events", List.of());
         }
 
-        // Parámetros actuales para mantener filtros en el formulario
         model.addAttribute("selectedType",   type);
         model.addAttribute("selectedStatus", status);
         model.addAttribute("selectedStart",  start);
         model.addAttribute("selectedEnd",    end);
 
         return "home";
+    }
+
+    @GetMapping("/dashboard")
+    public String dashboard(Authentication auth, Model model) {
+        if (auth == null) return "redirect:/login";
+
+        boolean isOrganizer = auth.getAuthorities().stream()
+                .anyMatch(a -> {
+                    String r = a.getAuthority();
+                    return r.contains("ORGANIZER") || r.contains("ADMIN")
+                            || r.contains("PROFESSOR") || r.contains("WELFARE")
+                            || r.contains("STUDENT_LEADER") || r.equals("ROLE_EMPLOYEE");
+                });
+
+        if (!isOrganizer) return "redirect:/home";
+
+        if (eventService != null) {
+            try {
+                List<Event> events = eventService.findAll(null, null, null, null);
+                model.addAttribute("events", events);
+
+                long published = events.stream()
+                        .filter(e -> "published".equalsIgnoreCase(e.getStatus())).count();
+                long upcoming = events.stream()
+                        .filter(e -> e.getStartDate() != null
+                                && e.getStartDate().isAfter(Instant.now())).count();
+                long inscriptions = events.stream()
+                        .mapToLong(e -> e.getInscriptions() != null
+                                ? e.getInscriptions().size() : 0).sum();
+
+                model.addAttribute("totalPublished",    published);
+                model.addAttribute("totalUpcoming",     upcoming);
+                model.addAttribute("totalInscriptions", inscriptions);
+            } catch (Exception e) {
+                model.addAttribute("events", List.of());
+                model.addAttribute("totalPublished",    0);
+                model.addAttribute("totalUpcoming",     0);
+                model.addAttribute("totalInscriptions", 0);
+            }
+        } else {
+            model.addAttribute("events", List.of());
+            model.addAttribute("totalPublished",    0);
+            model.addAttribute("totalUpcoming",     0);
+            model.addAttribute("totalInscriptions", 0);
+        }
+
+        return "dashboard";
     }
 }
