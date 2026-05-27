@@ -18,7 +18,6 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
-@ConditionalOnBean(MongoTemplate.class)
 public class AppUserService {
 
     private static final String STATUS_ACTIVE = "active";
