@@ -25,7 +25,4 @@ public class Inscription {
     private String institutionalId;
 
     private String status;
-
-    @Field("student_id")
-    private String studentId;
 }

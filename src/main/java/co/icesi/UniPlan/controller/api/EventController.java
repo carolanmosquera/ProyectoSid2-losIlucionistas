@@ -1,6 +1,6 @@
 package co.icesi.UniPlan.controller.api;
 
-import co.icesi.UniPlan.dto.EnrolledStudentResponse;
+import co.icesi.UniPlan.dto.EnrolledUserResponse;
 import co.icesi.UniPlan.dto.EventEnrollmentRequest;
 import co.icesi.UniPlan.dto.EventStatisticsResponse;
 import co.icesi.UniPlan.model.mongo.Event;
@@ -80,7 +80,7 @@ public class EventController {
     }
 
     @GetMapping("/{id}/inscriptions")
-    public List<EnrolledStudentResponse> enrolledStudents(@PathVariable String id) {
+    public List<EnrolledUserResponse> enrolledStudents(@PathVariable String id) {
         return eventService.enrolledStudents(id);
     }
 

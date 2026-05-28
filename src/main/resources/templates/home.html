@@ -1,32 +1,39 @@
 <!DOCTYPE html>
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>UniPlan — Eventos</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet" />
     <style>
         :root {
-            --navy:  #0d1b2a;
-            --teal:  #1a936f;
+            --navy: #0d1b2a;
+            --teal: #1a936f;
             --teal-light: #88d4ab;
             --cream: #f5f0e8;
             --white: #ffffff;
-            --gray:  #6b7280;
+            --gray: #6b7280;
             --border: #e2e8f0;
             --tag-workshop: #dbeafe;
             --tag-workshop-text: #1d4ed8;
-            --tag-talk:     #fef9c3;
-            --tag-talk-text:#854d0e;
-            --tag-sports:   #ffe4e6;
-            --tag-sports-text:#9f1239;
-            --tag-volunteer:#dcfce7;
-            --tag-volunteer-text:#166534;
-            --tag-other:    #f3e8ff;
-            --tag-other-text:#6b21a8;
+            --tag-talk: #fef9c3;
+            --tag-talk-text: #854d0e;
+            --tag-sports: #ffe4e6;
+            --tag-sports-text: #9f1239;
+            --tag-volunteer: #dcfce7;
+            --tag-volunteer-text: #166534;
+            --tag-other: #f3e8ff;
+            --tag-other-text: #6b21a8;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         body {
             font-family: 'DM Sans', sans-serif;
@@ -43,19 +50,26 @@
             align-items: center;
             justify-content: space-between;
             height: 64px;
-            position: sticky; top: 0; z-index: 100;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .brand {
-            display: flex; align-items: center; gap: .6rem;
+            display: flex;
+            align-items: center;
+            gap: .6rem;
             text-decoration: none;
         }
 
         .brand-icon {
-            width: 34px; height: 34px;
+            width: 34px;
+            height: 34px;
             background: var(--teal);
             border-radius: 8px;
-            display: flex; align-items: center; justify-content: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 1.1rem;
         }
 
@@ -66,7 +80,9 @@
         }
 
         .nav-right {
-            display: flex; align-items: center; gap: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
         }
 
         .nav-user {
@@ -74,7 +90,9 @@
             font-size: .88rem;
         }
 
-        .nav-user strong { color: var(--white); }
+        .nav-user strong {
+            color: var(--white);
+        }
 
         .btn-logout {
             padding: .4rem .9rem;
@@ -89,7 +107,10 @@
             transition: border-color .2s, color .2s;
         }
 
-        .btn-logout:hover { border-color: var(--teal); color: var(--teal-light); }
+        .btn-logout:hover {
+            border-color: var(--teal);
+            color: var(--teal-light);
+        }
 
         /* ── Page header ── */
         .page-header {
@@ -104,7 +125,10 @@
             margin-bottom: .3rem;
         }
 
-        .page-header p { color: #94a3b8; font-size: .92rem; }
+        .page-header p {
+            color: #94a3b8;
+            font-size: .92rem;
+        }
 
         /* ── Filter bar ── */
         .filter-bar {
@@ -117,7 +141,11 @@
             align-items: flex-end;
         }
 
-        .filter-group { display: flex; flex-direction: column; gap: .3rem; }
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: .3rem;
+        }
 
         .filter-group label {
             font-size: .75rem;
@@ -142,7 +170,9 @@
         }
 
         .filter-group select:focus,
-        .filter-group input:focus { border-color: var(--teal); }
+        .filter-group input:focus {
+            border-color: var(--teal);
+        }
 
         .btn-filter {
             padding: .5rem 1.2rem;
@@ -158,7 +188,9 @@
             align-self: flex-end;
         }
 
-        .btn-filter:hover { background: #157a5c; }
+        .btn-filter:hover {
+            background: #157a5c;
+        }
 
         .btn-reset {
             padding: .5rem 1rem;
@@ -174,7 +206,10 @@
             transition: color .2s, border-color .2s;
         }
 
-        .btn-reset:hover { color: var(--navy); border-color: var(--navy); }
+        .btn-reset:hover {
+            color: var(--navy);
+            border-color: var(--navy);
+        }
 
         /* ── Main content ── */
         .content {
@@ -189,7 +224,9 @@
             margin-bottom: 1.5rem;
         }
 
-        .results-count strong { color: var(--navy); }
+        .results-count strong {
+            color: var(--navy);
+        }
 
         /* ── Event grid ── */
         .events-grid {
@@ -210,7 +247,7 @@
 
         .event-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 40px rgba(0,0,0,.09);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .09);
         }
 
         .card-color-bar {
@@ -218,13 +255,30 @@
             background: var(--teal);
         }
 
-        .card-color-bar.workshop  { background: #3b82f6; }
-        .card-color-bar.talk      { background: #eab308; }
-        .card-color-bar.sports    { background: #ef4444; }
-        .card-color-bar.volunteer { background: #22c55e; }
-        .card-color-bar.other     { background: #a855f7; }
+        .card-color-bar.workshop {
+            background: #3b82f6;
+        }
 
-        .card-body { padding: 1.4rem 1.5rem; flex: 1; }
+        .card-color-bar.talk {
+            background: #eab308;
+        }
+
+        .card-color-bar.sports {
+            background: #ef4444;
+        }
+
+        .card-color-bar.volunteer {
+            background: #22c55e;
+        }
+
+        .card-color-bar.other {
+            background: #a855f7;
+        }
+
+        .card-body {
+            padding: 1.4rem 1.5rem;
+            flex: 1;
+        }
 
         .card-meta {
             display: flex;
@@ -242,24 +296,56 @@
             border-radius: 99px;
         }
 
-        .tag.workshop  { background: var(--tag-workshop);  color: var(--tag-workshop-text); }
-        .tag.talk      { background: var(--tag-talk);      color: var(--tag-talk-text); }
-        .tag.sports    { background: var(--tag-sports);    color: var(--tag-sports-text); }
-        .tag.volunteer { background: var(--tag-volunteer); color: var(--tag-volunteer-text); }
-        .tag.other     { background: var(--tag-other);     color: var(--tag-other-text); }
+        .tag.workshop {
+            background: var(--tag-workshop);
+            color: var(--tag-workshop-text);
+        }
+
+        .tag.talk {
+            background: var(--tag-talk);
+            color: var(--tag-talk-text);
+        }
+
+        .tag.sports {
+            background: var(--tag-sports);
+            color: var(--tag-sports-text);
+        }
+
+        .tag.volunteer {
+            background: var(--tag-volunteer);
+            color: var(--tag-volunteer-text);
+        }
+
+        .tag.other {
+            background: var(--tag-other);
+            color: var(--tag-other-text);
+        }
 
         .status-dot {
-            display: flex; align-items: center; gap: .35rem;
-            font-size: .78rem; color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: .35rem;
+            font-size: .78rem;
+            color: var(--gray);
         }
 
         .dot {
-            width: 7px; height: 7px; border-radius: 50%;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
         }
 
-        .dot.upcoming  { background: #3b82f6; }
-        .dot.active    { background: #22c55e; }
-        .dot.finished  { background: #9ca3af; }
+        .dot.upcoming {
+            background: #3b82f6;
+        }
+
+        .dot.active {
+            background: #22c55e;
+        }
+
+        .dot.finished {
+            background: #9ca3af;
+        }
 
         .card-title {
             font-family: 'Playfair Display', serif;
@@ -281,16 +367,23 @@
         }
 
         .card-info {
-            display: flex; flex-direction: column; gap: .35rem;
+            display: flex;
+            flex-direction: column;
+            gap: .35rem;
             margin-bottom: 1.1rem;
         }
 
         .info-row {
-            display: flex; align-items: center; gap: .5rem;
-            font-size: .83rem; color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            font-size: .83rem;
+            color: var(--gray);
         }
 
-        .info-row span.icon { font-size: .95rem; }
+        .info-row span.icon {
+            font-size: .95rem;
+        }
 
         .card-footer {
             padding: 1rem 1.5rem;
@@ -304,9 +397,20 @@
             font-size: .83rem;
         }
 
-        .spots.available { color: var(--teal); font-weight: 600; }
-        .spots.few       { color: #d97706; font-weight: 600; }
-        .spots.full      { color: #ef4444; font-weight: 600; }
+        .spots.available {
+            color: var(--teal);
+            font-weight: 600;
+        }
+
+        .spots.few {
+            color: #d97706;
+            font-weight: 600;
+        }
+
+        .spots.full {
+            color: #ef4444;
+            font-weight: 600;
+        }
 
         .btn-detail {
             padding: .45rem 1.1rem;
@@ -322,7 +426,9 @@
             transition: background .2s;
         }
 
-        .btn-detail:hover { background: var(--teal); }
+        .btn-detail:hover {
+            background: var(--teal);
+        }
 
         /* Empty state */
         .empty-state {
@@ -331,166 +437,190 @@
             color: var(--gray);
         }
 
-        .empty-state .emoji { font-size: 3rem; margin-bottom: 1rem; }
-        .empty-state h3 { font-size: 1.2rem; color: var(--navy); margin-bottom: .5rem; }
-        .empty-state p  { font-size: .9rem; }
+        .empty-state .emoji {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .empty-state h3 {
+            font-size: 1.2rem;
+            color: var(--navy);
+            margin-bottom: .5rem;
+        }
+
+        .empty-state p {
+            font-size: .9rem;
+        }
 
         @media (max-width: 640px) {
-            .content { padding: 1.5rem 1rem; }
-            .filter-bar { padding: 1rem; }
-            nav { padding: 0 1rem; }
+            .content {
+                padding: 1.5rem 1rem;
+            }
+
+            .filter-bar {
+                padding: 1rem;
+            }
+
+            nav {
+                padding: 0 1rem;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<!-- ── Navbar ── -->
-<nav>
-    <a class="brand" th:href="@{/home}">
-        <div class="brand-icon">📅</div>
-        <span class="brand-name">UniPlan</span>
-    </a>
-    <div class="nav-right">
-        <span class="nav-user">
-            Hola, <strong th:text="${#authentication?.name ?: 'Estudiante'}">Estudiante</strong>
-        </span>
-        <a class="btn-logout" th:href="@{/logout}">Cerrar sesión</a>
-    </div>
-</nav>
+    <!-- ── Navbar ── -->
+    <nav>
+        <a class="brand" th:href="@{/home}">
+            <div class="brand-icon">📅</div>
+            <span class="brand-name">UniPlan</span>
+        </a>
+        <div class="nav-right">
+            <span class="nav-user">
+                Hola, <strong th:text="${#authentication?.name ?: 'Estudiante'}">Estudiante</strong>
+            </span>
+            <a class="btn-logout" th:href="@{/logout}">Cerrar sesión</a>
+        </div>
+    </nav>
 
-<!-- ── Page header ── -->
-<div class="page-header">
-    <h1>Catálogo de Eventos</h1>
-    <p>Descubre y regístrate en las actividades extracurriculares de la Universidad Icesi</p>
-</div>
-
-<!--
-    Filtros → GET /api/events?type=&status=&start=&end=
-    Params mapeados a EventController.findAll(type, status, start, end)
--->
-<form class="filter-bar" th:action="@{/home}" method="get">
-    <div class="filter-group">
-        <label>Tipo de evento</label>
-        <select name="type">
-            <option value="">Todos</option>
-            <option value="WORKSHOP"  th:selected="${param.type == 'WORKSHOP'}">Taller</option>
-            <option value="TALK"      th:selected="${param.type == 'TALK'}">Charla</option>
-            <option value="SPORTS"    th:selected="${param.type == 'SPORTS'}">Torneo deportivo</option>
-            <option value="VOLUNTEER" th:selected="${param.type == 'VOLUNTEER'}">Voluntariado</option>
-            <option value="OTHER"     th:selected="${param.type == 'OTHER'}">Otro</option>
-        </select>
-    </div>
-
-    <div class="filter-group">
-        <label>Estado</label>
-        <select name="status">
-            <option value="">Todos</option>
-            <option value="UPCOMING"  th:selected="${param.status == 'UPCOMING'}">Próximos</option>
-            <option value="ACTIVE"    th:selected="${param.status == 'ACTIVE'}">En curso</option>
-            <option value="FINISHED"  th:selected="${param.status == 'FINISHED'}">Finalizados</option>
-        </select>
-    </div>
-
-    <div class="filter-group">
-        <label>Desde</label>
-        <input type="date" name="start" th:value="${param.start}"/>
-    </div>
-
-    <div class="filter-group">
-        <label>Hasta</label>
-        <input type="date" name="end" th:value="${param.end}"/>
-    </div>
-
-    <button type="submit" class="btn-filter">Filtrar</button>
-    <a class="btn-reset" th:href="@{/home}">Limpiar</a>
-</form>
-
-<!-- ── Event grid ── -->
-<div class="content">
-
-    <p class="results-count" th:if="${events != null}">
-        Mostrando <strong th:text="${#lists.size(events)}">0</strong> evento(s)
-    </p>
-
-    <!-- Empty state -->
-    <div class="empty-state" th:if="${events == null or #lists.isEmpty(events)}">
-        <div class="emoji">📭</div>
-        <h3>No hay eventos disponibles</h3>
-        <p>Intenta cambiar los filtros o vuelve más tarde.</p>
+    <!-- ── Page header ── -->
+    <div class="page-header">
+        <h1>Catálogo de Eventos</h1>
+        <p>Descubre y regístrate en las actividades extracurriculares de la Universidad Icesi</p>
     </div>
 
     <!--
+    Filtros → GET /api/events?type=&status=&start=&end=
+    Params mapeados a EventController.findAll(type, status, start, end)
+-->
+    <form class="filter-bar" th:action="@{/home}" method="get">
+        <div class="filter-group">
+            <label>Tipo de evento</label>
+            <select name="type">
+                <option value="">Todos</option>
+                <option value="WORKSHOP" th:selected="${param.type == 'WORKSHOP'}">Taller</option>
+                <option value="TALK" th:selected="${param.type == 'TALK'}">Charla</option>
+                <option value="SPORTS" th:selected="${param.type == 'SPORTS'}">Torneo deportivo</option>
+                <option value="VOLUNTEER" th:selected="${param.type == 'VOLUNTEER'}">Voluntariado</option>
+                <option value="OTHER" th:selected="${param.type == 'OTHER'}">Otro</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label>Estado</label>
+            <select name="status">
+                <option value="">Todos</option>
+                <option value="UPCOMING" th:selected="${param.status == 'UPCOMING'}">Próximos</option>
+                <option value="ACTIVE" th:selected="${param.status == 'ACTIVE'}">En curso</option>
+                <option value="FINISHED" th:selected="${param.status == 'FINISHED'}">Finalizados</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label>Desde</label>
+            <input type="date" name="start" th:value="${param.start}" />
+        </div>
+
+        <div class="filter-group">
+            <label>Hasta</label>
+            <input type="date" name="end" th:value="${param.end}" />
+        </div>
+
+        <button type="submit" class="btn-filter">Filtrar</button>
+        <a class="btn-reset" th:href="@{/home}">Limpiar</a>
+    </form>
+
+    <!-- ── Event grid ── -->
+    <div class="content">
+
+        <p class="results-count" th:if="${events != null}">
+            Mostrando <strong th:text="${#lists.size(events)}">0</strong> evento(s)
+        </p>
+
+        <!-- Empty state -->
+        <div class="empty-state" th:if="${events == null or #lists.isEmpty(events)}">
+            <div class="emoji">📭</div>
+            <h3>No hay eventos disponibles</h3>
+            <p>Intenta cambiar los filtros o vuelve más tarde.</p>
+        </div>
+
+        <!--
         Model attribute: List<Event> events
         Event fields (model/mongo/Event.java):
           id, eventCode, title, type, description,
           startDate, endDate, location,
           maxAttendees, status, inscriptions
     -->
-    <div class="events-grid" th:if="${events != null and not #lists.isEmpty(events)}">
-        <div class="event-card" th:each="event : ${events}">
+        <div class="events-grid" th:if="${events != null and not #lists.isEmpty(events)}">
+            <div class="event-card" th:each="event : ${events}">
 
-            <!-- Color bar by type -->
-            <div th:class="'card-color-bar ' + ${#strings.toLowerCase(event.type ?: 'other')}"></div>
+                <!-- Color bar by type -->
+                <div th:class="'card-color-bar ' + ${#strings.toLowerCase(event.type ?: 'other')}"></div>
 
-            <div class="card-body">
-                <div class="card-meta">
-                    <span th:class="'tag ' + ${#strings.toLowerCase(event.type ?: 'other')}"
-                          th:text="${event.type ?: 'OTRO'}">TALLER</span>
+                <div class="card-body">
+                    <div class="card-meta">
+                        <span th:class="'tag ' + ${#strings.toLowerCase(event.type ?: 'other')}"
+                            th:text="${event.type ?: 'OTRO'}">TALLER</span>
 
-                    <span class="status-dot">
-                        <span th:class="'dot ' + ${#strings.toLowerCase(event.status ?: 'upcoming')}"></span>
-                        <span th:switch="${event.status}">
-                            <span th:case="'UPCOMING'">Próximo</span>
-                            <span th:case="'ACTIVE'">En curso</span>
-                            <span th:case="'FINISHED'">Finalizado</span>
-                            <span th:case="*">Próximo</span>
+                        <span class="status-dot">
+                            <span th:class="'dot ' + ${#strings.toLowerCase(event.status ?: 'upcoming')}"></span>
+                            <span th:switch="${event.status}">
+                                <span th:case="'UPCOMING'">Próximo</span>
+                                <span th:case="'ACTIVE'">En curso</span>
+                                <span th:case="'FINISHED'">Finalizado</span>
+                                <span th:case="*">Próximo</span>
+                            </span>
                         </span>
+                    </div>
+
+                    <h3 class="card-title" th:text="${event.title}">Taller de Programación</h3>
+                    <p class="card-desc" th:text="${event.description}">Descripción del evento...</p>
+
+                    <div class="card-info">
+                        <div class="info-row" th:if="${event.startDate != null}">
+                            <span class="icon">📅</span>
+                            <span th:text="${#temporals.format(event.startDate, 'dd MMM yyyy, HH:mm')}">01 Jun 2025,
+                                10:00</span>
+                        </div>
+                        <div class="info-row" th:if="${event.location != null}">
+                            <span class="icon">📍</span>
+                            <span th:text="${event.location}">Aula 301</span>
+                        </div>
+                        <div class="info-row">
+                            <span class="icon">🔖</span>
+                            <span th:text="${event.eventCode}">EVT-001</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <!-- Cupos disponibles -->
+                    <span th:with="total=${event.availableSlots ?: 0}">
+
+                        <span th:if="${total <= 0}" class="spots full">
+                            Sin cupos
+                        </span>
+
+                        <span th:if="${total > 0 and total <= 5}" class="spots few" th:text="${total} + ' cupos'">
+                            3 cupos
+                        </span>
+
+                        <span th:if="${total > 5}" class="spots available" th:text="${total} + ' cupos'">
+                            20 cupos
+                        </span>
+
                     </span>
+
+                    <!-- Enlace al detalle: GET /api/events/{id} -->
+                    <a class="btn-detail" th:href="@{/events/{id}(id=${event.id})}">
+                        Ver detalle
+                    </a>
                 </div>
-
-                <h3 class="card-title" th:text="${event.title}">Taller de Programación</h3>
-                <p class="card-desc" th:text="${event.description}">Descripción del evento...</p>
-
-                <div class="card-info">
-                    <div class="info-row" th:if="${event.startDate != null}">
-                        <span class="icon">📅</span>
-                        <span th:text="${#temporals.format(event.startDate, 'dd MMM yyyy, HH:mm')}">01 Jun 2025, 10:00</span>
-                    </div>
-                    <div class="info-row" th:if="${event.location != null}">
-                        <span class="icon">📍</span>
-                        <span th:text="${event.location}">Aula 301</span>
-                    </div>
-                    <div class="info-row">
-                        <span class="icon">🔖</span>
-                        <span th:text="${event.eventCode}">EVT-001</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="card-footer">
-                <!-- Cupos disponibles -->
-                <span th:with="
-                    total=${event.maxSlots ?: 0},
-                    enrolled=${#lists.size(event.inscriptions ?: {})}">
-
-                    <span th:if="${total - enrolled <= 0}" class="spots full">Sin cupos</span>
-                    <span th:if="${total - enrolled > 0 and total - enrolled <= 5}"
-                          class="spots few"
-                          th:text="${total - enrolled} + ' cupos'">3 cupos</span>
-                    <span th:if="${total - enrolled > 5}"
-                          class="spots available"
-                          th:text="${total - enrolled} + ' cupos'">20 cupos</span>
-                </span>
-
-                <!-- Enlace al detalle: GET /api/events/{id} -->
-                <a class="btn-detail"
-                   th:href="@{/events/{id}(id=${event.id})}">
-                    Ver detalle
-                </a>
             </div>
         </div>
     </div>
-</div>
 
 </body>
+
 </html>

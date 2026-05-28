@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -94,28 +95,19 @@ public class EventViewController {
                 model.addAttribute("stats", null);
             }
 
-            String username = auth != null ? auth.getName() : null;
+            String email = auth != null ? auth.getName() : null;
             AppUser currentUser = null;
             boolean isEnrolled = false;
 
-            if (username != null && appUserRepository != null) {
-                User pgUser = userRepository.findByUsername(username).orElse(null);
+            if (email != null && appUserRepository != null) {
 
-                if (pgUser != null && pgUser.getStudent() != null) {
-                    String studentId = pgUser.getStudent().getId();
-                    currentUser = appUserRepository.findByInstitutionalId(studentId).orElse(null);
-                } else if (pgUser != null && pgUser.getEmployee() != null) {
-                    String employeeId = pgUser.getEmployee().getId();
-                    currentUser = appUserRepository.findByInstitutionalId(employeeId).orElse(null);
-                }
+                currentUser = appUserRepository.findByInstitutionalEmail(email).orElse(null);
 
                 if (currentUser != null && event.getInscriptions() != null) {
-                    final String appUserId = currentUser.getId();
-                    final String instId = currentUser.getInstitutionalId();
+                    final String appUserId = currentUser.getInstitutionalId();
                     isEnrolled = event.getInscriptions().stream()
                             .anyMatch(i -> "active".equalsIgnoreCase(i.getStatus())
-                                    && (appUserId.equals(i.getStudentId())
-                                            || instId.equals(i.getInstitutionalId())));
+                                    && (appUserId.equals(i.getInstitutionalId())));
                 }
             }
 
@@ -145,30 +137,59 @@ public class EventViewController {
     }
 
     @PostMapping("/events/{id}/enroll")
-    public String enroll(@PathVariable String id,
-            @RequestParam(required = false) String studentId,
-            @RequestParam(required = false) String institutionalId) {
+    public String enroll(
+            @PathVariable String id,
+            @RequestParam(required = false) String institutionalId,
+            RedirectAttributes redirectAttributes) {
+
         if (eventService == null)
             return "redirect:/home";
+
         try {
-            eventService.enroll(id, new EventEnrollmentRequest(studentId, institutionalId));
-            return "redirect:/events/" + id + "/confirmed?msg=ok";
+
+            eventService.enroll(
+                    id,
+                    new EventEnrollmentRequest(institutionalId));
+
+            redirectAttributes.addFlashAttribute(
+                    "enrollSuccess",
+                    true);
+
         } catch (Exception e) {
-            return "redirect:/events/" + id + "/confirmed?err=" + e.getMessage();
+
+            redirectAttributes.addFlashAttribute(
+                    "enrollError",
+                    e.getMessage());
         }
+
+        return "redirect:/events/" + id;
     }
 
     @PostMapping("/events/{id}/cancel")
-    public String cancel(@PathVariable String id,
-            @RequestParam(required = false) String studentId) {
+    public String cancel(
+            @PathVariable String id,
+            @RequestParam(required = false) String institutionalId,
+            RedirectAttributes redirectAttributes) {
+
         if (eventService == null)
             return "redirect:/home";
+
         try {
-            eventService.cancelEnrollment(id, studentId);
-            return "redirect:/events/" + id + "/confirmed?msg=cancelled";
+
+            eventService.cancelEnrollment(id, institutionalId);
+
+            redirectAttributes.addFlashAttribute(
+                    "cancelSuccess",
+                    true);
+
         } catch (Exception e) {
-            return "redirect:/events/" + id + "/confirmed?err=" + e.getMessage();
+
+            redirectAttributes.addFlashAttribute(
+                    "enrollError",
+                    e.getMessage());
         }
+
+        return "redirect:/events/" + id;
     }
 
     // ─────────────────────────────────────────────────────────────────────────

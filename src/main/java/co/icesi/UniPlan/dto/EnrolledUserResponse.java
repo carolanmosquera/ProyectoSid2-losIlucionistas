@@ -2,8 +2,7 @@ package co.icesi.UniPlan.dto;
 
 import java.time.Instant;
 
-public record EnrolledStudentResponse(
-        String studentId,
+public record EnrolledUserResponse(
         String institutionalId,
         String firstName,
         String lastName,

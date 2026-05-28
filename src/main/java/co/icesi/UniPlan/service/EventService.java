@@ -1,6 +1,6 @@
 package co.icesi.UniPlan.service;
 
-import co.icesi.UniPlan.dto.EnrolledStudentResponse;
+import co.icesi.UniPlan.dto.EnrolledUserResponse;
 import co.icesi.UniPlan.dto.EventEnrollmentRequest;
 import co.icesi.UniPlan.dto.EventStatisticsResponse;
 import co.icesi.UniPlan.exception.BusinessException;
@@ -116,7 +116,6 @@ public class EventService {
         validateCanEnroll(event, request);
 
         Inscription inscription = Inscription.builder()
-                .studentId(request.studentId())
                 .institutionalId(request.institutionalId())
                 .status(INSCRIPTION_ACTIVE)
                 .attended(false)
@@ -133,9 +132,9 @@ public class EventService {
         return inscription;
     }
 
-    public Inscription cancelEnrollment(String eventId, String studentId) {
+    public Inscription cancelEnrollment(String eventId, String institutionalId) {
         Event event = findById(eventId);
-        Inscription inscription = activeInscriptionFor(event, studentId);
+        Inscription inscription = activeInscriptionFor(event, institutionalId);
         inscription.setStatus(INSCRIPTION_CANCELLED);
         inscription.setCancelledAt(Instant.now());
         inscription.setAttended(false);
@@ -146,7 +145,7 @@ public class EventService {
         return inscription;
     }
 
-    public List<EnrolledStudentResponse> enrolledStudents(String eventId) {
+    public List<EnrolledUserResponse> enrolledStudents(String eventId) {
         Event event = findById(eventId);
         return safeInscriptions(event).stream()
                 .map(this::toEnrolledStudent)
@@ -156,8 +155,7 @@ public class EventService {
     public byte[] enrolledStudentsCsv(String eventId) {
         StringBuilder csv = new StringBuilder(
                 "student_id,institutional_id,first_name,last_name,email,status,attended,enrolled_at,cancelled_at\n");
-        enrolledStudents(eventId).forEach(student -> csv.append(csv(student.studentId())).append(',')
-                .append(csv(student.institutionalId())).append(',')
+        enrolledStudents(eventId).forEach(student -> csv.append(csv(student.institutionalId())).append(',')
                 .append(csv(student.firstName())).append(',')
                 .append(csv(student.lastName())).append(',')
                 .append(csv(student.email())).append(',')
@@ -216,13 +214,12 @@ public class EventService {
         }
         if (safeInscriptions(event).stream()
                 .anyMatch(inscription -> isActive(inscription)
-                        && sameStudent(inscription, request.studentId(), request.institutionalId()))) {
+                        && sameStudent(inscription, request.institutionalId()))) {
             throw new BusinessException("El estudiante ya esta inscrito en este evento");
         }
+
         appUserRepository.findByInstitutionalId(request.institutionalId())
                 .orElseThrow(() -> new BusinessException("El estudiante no esta registrado en UniPlan"));
-        studentRepository.findById(request.institutionalId())
-                .orElseThrow(() -> new BusinessException("El estudiante no existe en la base institucional"));
 
         validateEventTypeRules(event, request);
     }
@@ -262,7 +259,7 @@ public class EventService {
                         || normalize(other.getType()).contains("deport"))
                 .filter(other -> safeInscriptions(other).stream()
                         .anyMatch(inscription -> isActive(inscription)
-                                && sameStudent(inscription, null, institutionalId)))
+                                && sameStudent(inscription, institutionalId)))
                 .anyMatch(other -> event.getStartDate().isBefore(other.getEndDate())
                         && event.getEndDate().isAfter(other.getStartDate()));
         if (overlaps) {
@@ -277,10 +274,9 @@ public class EventService {
         }
     }
 
-    private EnrolledStudentResponse toEnrolledStudent(Inscription inscription) {
+    private EnrolledUserResponse toEnrolledStudent(Inscription inscription) {
         Student student = studentRepository.findById(inscription.getInstitutionalId()).orElse(null);
-        return new EnrolledStudentResponse(
-                inscription.getStudentId(),
+        return new EnrolledUserResponse(
                 inscription.getInstitutionalId(),
                 student == null ? null : student.getFirstName(),
                 student == null ? null : student.getLastName(),
@@ -291,12 +287,12 @@ public class EventService {
                 inscription.getCancelledAt());
     }
 
-    private Inscription activeInscriptionFor(Event event, String studentId) {
+    private Inscription activeInscriptionFor(Event event, String institutionalId) {
         return safeInscriptions(event).stream()
-                .filter(inscription -> isActive(inscription) && sameStudent(inscription, studentId, studentId))
+                .filter(inscription -> isActive(inscription) && sameStudent(inscription, institutionalId))
                 .findFirst()
                 .orElseThrow(() -> new ResourceNotFoundException(
-                        "Inscripcion activa no encontrada para el estudiante: " + studentId));
+                        "Inscripcion activa no encontrada para el estudiante: " + institutionalId));
     }
 
     private int calculateAvailableSlots(Event event) {
@@ -343,9 +339,8 @@ public class EventService {
         return equalsIgnoreCase(inscription.getStatus(), INSCRIPTION_ACTIVE);
     }
 
-    private boolean sameStudent(Inscription inscription, String studentId, String institutionalId) {
-        return Objects.equals(inscription.getStudentId(), studentId)
-                || Objects.equals(inscription.getInstitutionalId(), institutionalId);
+    private boolean sameStudent(Inscription inscription, String institutionalId) {
+        return Objects.equals(inscription.getInstitutionalId(), institutionalId);
     }
 
     private Integer parsePositiveInteger(String value) {
