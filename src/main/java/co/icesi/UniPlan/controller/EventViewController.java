@@ -43,9 +43,9 @@ public class EventViewController {
 
     /**
      * Parsea fechas en cualquier formato que pueda llegar:
-     *   "2025-06-01T10:00"       → datetime-local sin segundos (el más común)
-     *   "2025-06-01T10:00:00"    → datetime-local con segundos
-     *   "2025-06-01T10:00:00Z"   → ISO-8601 completo (si el JS logró convertirlo)
+     * "2025-06-01T10:00" → datetime-local sin segundos (el más común)
+     * "2025-06-01T10:00:00" → datetime-local con segundos
+     * "2025-06-01T10:00:00Z" → ISO-8601 completo (si el JS logró convertirlo)
      */
     private Instant parseDate(String value) {
         if (value == null || value.isBlank()) {
@@ -61,7 +61,8 @@ public class EventViewController {
                     ? value + ":00Z"
                     : value + "Z");
         }
-        // 3) Sin zona — formato datetime-local: "yyyy-MM-ddTHH:mm" o "yyyy-MM-ddTHH:mm:ss"
+        // 3) Sin zona — formato datetime-local: "yyyy-MM-ddTHH:mm" o
+        // "yyyy-MM-ddTHH:mm:ss"
         // Se usa la zona de Colombia (UTC-5) para que la fecha no quede 5h atrás
         ZoneOffset colombiaOffset = ZoneOffset.of("-05:00");
         try {
@@ -80,7 +81,8 @@ public class EventViewController {
 
     @GetMapping("/events/{id}")
     public String eventDetail(@PathVariable String id, Authentication auth, Model model) {
-        if (eventService == null) return "redirect:/home";
+        if (eventService == null)
+            return "redirect:/home";
         try {
             Event event = eventService.findById(id);
             model.addAttribute("event", event);
@@ -135,16 +137,19 @@ public class EventViewController {
             @RequestParam(required = false) String err,
             Authentication auth, Model model) {
         eventDetail(id, auth, model);
-        if (msg != null) model.addAttribute("enrollSuccess", true);
-        if (err != null) model.addAttribute("enrollError", err);
+        if (msg != null)
+            model.addAttribute("enrollSuccess", true);
+        if (err != null)
+            model.addAttribute("enrollError", err);
         return "event-detail";
     }
 
     @PostMapping("/events/{id}/enroll")
     public String enroll(@PathVariable String id,
-                         @RequestParam(required = false) String studentId,
-                         @RequestParam(required = false) String institutionalId) {
-        if (eventService == null) return "redirect:/home";
+            @RequestParam(required = false) String studentId,
+            @RequestParam(required = false) String institutionalId) {
+        if (eventService == null)
+            return "redirect:/home";
         try {
             eventService.enroll(id, new EventEnrollmentRequest(studentId, institutionalId));
             return "redirect:/events/" + id + "/confirmed?msg=ok";
@@ -155,8 +160,9 @@ public class EventViewController {
 
     @PostMapping("/events/{id}/cancel")
     public String cancel(@PathVariable String id,
-                         @RequestParam(required = false) String studentId) {
-        if (eventService == null) return "redirect:/home";
+            @RequestParam(required = false) String studentId) {
+        if (eventService == null)
+            return "redirect:/home";
         try {
             eventService.cancelEnrollment(id, studentId);
             return "redirect:/events/" + id + "/confirmed?msg=cancelled";
@@ -171,7 +177,8 @@ public class EventViewController {
 
     @GetMapping("/events/create")
     public String createEventForm(Authentication auth) {
-        if (auth == null) return "redirect:/login";
+        if (auth == null)
+            return "redirect:/login";
         return "create-event";
     }
 
@@ -191,7 +198,8 @@ public class EventViewController {
             Authentication auth,
             Model model) {
 
-        if (eventService == null) return "redirect:/dashboard";
+        if (eventService == null)
+            return "redirect:/dashboard";
 
         try {
             String username = auth != null ? auth.getName() : null;
@@ -212,8 +220,8 @@ public class EventViewController {
                     .description(description)
                     .type(type)
                     .location(location)
-                    .startDate(parseDate(startDate))   // ← usa el helper robusto
-                    .endDate(parseDate(endDate))       // ← usa el helper robusto
+                    .startDate(parseDate(startDate)) // ← usa el helper robusto
+                    .endDate(parseDate(endDate)) // ← usa el helper robusto
                     .maxSlots(maxSlots)
                     .sportType(sportType)
                     .tournamentType(tournamentType)

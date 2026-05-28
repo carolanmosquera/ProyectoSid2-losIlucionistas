@@ -11,16 +11,19 @@ import co.icesi.UniPlan.repository.EmployeeRepository;
 import co.icesi.UniPlan.repository.StudentRepository;
 import co.icesi.UniPlan.repository.mongo.AppUserRepository;
 import co.icesi.UniPlan.repository.mongo.RoleRepository;
+import lombok.RequiredArgsConstructor;
+
 import java.time.Instant;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AppUserService {
 
-    private static final String STATUS_ACTIVE = "active";
+    private static final String STATUS_ACTIVE = "ACTIVE";
     private static final String USER_TYPE_STUDENT = "STUDENT";
     private static final String USER_TYPE_PROFESSOR = "PROFESSOR";
     private static final String USER_TYPE_ADMIN = "ADMIN";
@@ -29,16 +32,19 @@ public class AppUserService {
     private final RoleRepository roleRepository;
     private final StudentRepository studentRepository;
     private final EmployeeRepository employeeRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public AppUserService(
             AppUserRepository appUserRepository,
             RoleRepository roleRepository,
             StudentRepository studentRepository,
-            EmployeeRepository employeeRepository) {
+            EmployeeRepository employeeRepository,
+            PasswordEncoder passwordEncoder) {
         this.appUserRepository = appUserRepository;
         this.roleRepository = roleRepository;
         this.studentRepository = studentRepository;
         this.employeeRepository = employeeRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     public List<AppUser> findAll() {
@@ -125,7 +131,7 @@ public class AppUserService {
         AppUser appUser = AppUser.builder()
                 .institutionalId(request.institutionalId())
                 .institutionalEmail(request.institutionalEmail())
-                .passwordHash(request.passwordHash())
+                .passwordHash(passwordEncoder.encode(request.passwordHash()))
                 .roleId(roleId)
                 .userType(userType)
                 .status(STATUS_ACTIVE)

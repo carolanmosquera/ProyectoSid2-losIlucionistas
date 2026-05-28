@@ -22,8 +22,6 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.UUID;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -37,16 +35,19 @@ public class EventService {
     private final AppUserRepository appUserRepository;
     private final StudentRepository studentRepository;
     private final EnrollmentRepository enrollmentRepository;
+    private final EventStatisticsService eventStatisticsService;
 
     public EventService(
             EventRepository eventRepository,
             AppUserRepository appUserRepository,
             StudentRepository studentRepository,
-            EnrollmentRepository enrollmentRepository) {
+            EnrollmentRepository enrollmentRepository,
+            EventStatisticsService eventStatisticsService) {
         this.eventRepository = eventRepository;
         this.appUserRepository = appUserRepository;
         this.studentRepository = studentRepository;
         this.enrollmentRepository = enrollmentRepository;
+        this.eventStatisticsService = eventStatisticsService;
     }
 
     public List<Event> findAll(String type, String status, Instant start, Instant end) {
@@ -128,6 +129,7 @@ public class EventService {
         event.setAvailableSlots(Math.max(0, nullToZero(event.getAvailableSlots()) - 1));
         event.setUpdatedAt(Instant.now());
         eventRepository.save(event);
+        eventStatisticsService.recordInscription(eventId);
         return inscription;
     }
 
@@ -140,6 +142,7 @@ public class EventService {
         event.setAvailableSlots(calculateAvailableSlots(event));
         event.setUpdatedAt(Instant.now());
         eventRepository.save(event);
+        eventStatisticsService.recordCancellation(eventId);
         return inscription;
     }
 
@@ -151,7 +154,8 @@ public class EventService {
     }
 
     public byte[] enrolledStudentsCsv(String eventId) {
-        StringBuilder csv = new StringBuilder("student_id,institutional_id,first_name,last_name,email,status,attended,enrolled_at,cancelled_at\n");
+        StringBuilder csv = new StringBuilder(
+                "student_id,institutional_id,first_name,last_name,email,status,attended,enrolled_at,cancelled_at\n");
         enrolledStudents(eventId).forEach(student -> csv.append(csv(student.studentId())).append(',')
                 .append(csv(student.institutionalId())).append(',')
                 .append(csv(student.firstName())).append(',')
@@ -170,11 +174,13 @@ public class EventService {
         long cancellations = safeInscriptions(event).stream()
                 .filter(inscription -> equalsIgnoreCase(inscription.getStatus(), INSCRIPTION_CANCELLED))
                 .count();
-        long attendees = safeInscriptions(event).stream().filter(inscription -> Boolean.TRUE.equals(inscription.getAttended())).count();
+        long attendees = safeInscriptions(event).stream()
+                .filter(inscription -> Boolean.TRUE.equals(inscription.getAttended())).count();
         double occupancy = event.getMaxSlots() == null || event.getMaxSlots() <= 0
                 ? 0
                 : enrolled * 100.0 / event.getMaxSlots();
-        return new EventStatisticsResponse(event.getId(), event.getEventCode(), enrolled, cancellations, attendees, occupancy);
+        return new EventStatisticsResponse(event.getId(), event.getEventCode(), enrolled, cancellations, attendees,
+                occupancy);
     }
 
     private void validateEventForPublication(Event event) {
@@ -209,7 +215,8 @@ public class EventService {
             throw new BusinessException("No hay cupos disponibles");
         }
         if (safeInscriptions(event).stream()
-                .anyMatch(inscription -> isActive(inscription) && sameStudent(inscription, request.studentId(), request.institutionalId()))) {
+                .anyMatch(inscription -> isActive(inscription)
+                        && sameStudent(inscription, request.studentId(), request.institutionalId()))) {
             throw new BusinessException("El estudiante ya esta inscrito en este evento");
         }
         appUserRepository.findByInstitutionalId(request.institutionalId())
@@ -254,7 +261,8 @@ public class EventService {
                         || normalize(other.getType()).contains("sport")
                         || normalize(other.getType()).contains("deport"))
                 .filter(other -> safeInscriptions(other).stream()
-                        .anyMatch(inscription -> isActive(inscription) && sameStudent(inscription, null, institutionalId)))
+                        .anyMatch(inscription -> isActive(inscription)
+                                && sameStudent(inscription, null, institutionalId)))
                 .anyMatch(other -> event.getStartDate().isBefore(other.getEndDate())
                         && event.getEndDate().isAfter(other.getStartDate()));
         if (overlaps) {
@@ -287,7 +295,8 @@ public class EventService {
         return safeInscriptions(event).stream()
                 .filter(inscription -> isActive(inscription) && sameStudent(inscription, studentId, studentId))
                 .findFirst()
-                .orElseThrow(() -> new ResourceNotFoundException("Inscripcion activa no encontrada para el estudiante: " + studentId));
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Inscripcion activa no encontrada para el estudiante: " + studentId));
     }
 
     private int calculateAvailableSlots(Event event) {
