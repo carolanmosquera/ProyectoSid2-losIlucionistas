@@ -42,7 +42,7 @@ public class AppUserController {
     @PostMapping("/students")
     @ResponseStatus(HttpStatus.CREATED)
     public AppUser registerStudent(@Valid @RequestBody AppUserRegistrationRequest request) {
-        return appUserService.registerStudent(request);
+        return appUserService.registerAppUser(request);
     }
 
     @PostMapping("/organizers")

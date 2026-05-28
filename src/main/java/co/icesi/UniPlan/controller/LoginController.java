@@ -26,9 +26,12 @@ public class LoginController {
             @RequestParam(required = false) String logout,
             @RequestParam(required = false) String registered,
             Model model) {
-        if (error != null)      model.addAttribute("loginError", true);
-        if (logout != null)     model.addAttribute("logoutMsg", true);
-        if (registered != null) model.addAttribute("registerSuccess", true);
+        if (error != null)
+            model.addAttribute("loginError", true);
+        if (logout != null)
+            model.addAttribute("logoutMsg", true);
+        if (registered != null)
+            model.addAttribute("registerSuccess", true);
         return "login";
     }
 
@@ -45,7 +48,7 @@ public class LoginController {
             return "login";
         }
         try {
-            appUserService.registerStudent(new AppUserRegistrationRequest(
+            appUserService.registerAppUser(new AppUserRegistrationRequest(
                     institutionalId, institutionalEmail, passwordHash, null, userType));
             return "redirect:/login?registered";
         } catch (Exception e) {

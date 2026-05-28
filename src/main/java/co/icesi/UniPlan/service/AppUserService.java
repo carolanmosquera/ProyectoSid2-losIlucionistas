@@ -13,15 +13,17 @@ import co.icesi.UniPlan.repository.mongo.AppUserRepository;
 import co.icesi.UniPlan.repository.mongo.RoleRepository;
 import java.time.Instant;
 import java.util.List;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.data.mongodb.core.MongoTemplate;
+import java.util.Optional;
+
 import org.springframework.stereotype.Service;
 
 @Service
 public class AppUserService {
 
     private static final String STATUS_ACTIVE = "active";
-    private static final String USER_TYPE_STUDENT = "student";
+    private static final String USER_TYPE_STUDENT = "STUDENT";
+    private static final String USER_TYPE_PROFESSOR = "PROFESSOR";
+    private static final String USER_TYPE_ADMIN = "ADMIN";
 
     private final AppUserRepository appUserRepository;
     private final RoleRepository roleRepository;
@@ -48,13 +50,40 @@ public class AppUserService {
                 .orElseThrow(() -> new ResourceNotFoundException("Usuario no encontrado: " + id));
     }
 
-    public AppUser registerStudent(AppUserRegistrationRequest request) {
-        Student student = studentRepository.findById(request.institutionalId())
-                .or(() -> studentRepository.findByEmail(request.institutionalEmail()))
-                .orElseThrow(() -> new BusinessException("El estudiante no existe en la base institucional"));
+    public AppUser registerAppUser(AppUserRegistrationRequest request) {
 
-        if (!student.getEmail().equalsIgnoreCase(request.institutionalEmail())) {
-            throw new BusinessException("El correo institucional no coincide con el estudiante");
+        Optional<Student> studentOpt = studentRepository.findById(request.institutionalId())
+                .or(() -> studentRepository.findByEmail(request.institutionalEmail()));
+
+        if (studentOpt.isEmpty()) {
+
+            Employee employee = employeeRepository.findById(request.institutionalId())
+                    .or(() -> employeeRepository.findByEmail(request.institutionalEmail()))
+                    .orElseThrow(
+                            () -> new BusinessException("El usuario no pertenece a la institución educativa ICESI"));
+
+            if (!employee.getId().equals(request.institutionalId())
+                    || !employee.getEmail().equalsIgnoreCase(request.institutionalEmail())) {
+                throw new BusinessException("Las credenciales ingresadas no coincide con las institucionales");
+            }
+
+            if (employee.getEmployeeType().equals("Administrativo")) {
+
+                return registerValidatedUser(request, USER_TYPE_ADMIN);
+
+            }
+
+            return registerValidatedUser(request, USER_TYPE_PROFESSOR);
+
+        } else {
+
+            Student student = studentOpt.get();
+
+            if (!student.getId().equals(request.institutionalId())
+                    || !student.getEmail().equalsIgnoreCase(request.institutionalEmail())) {
+                throw new BusinessException("Las credenciales ingresadas no coincide con las institucionales");
+            }
+
         }
 
         return registerValidatedUser(request, USER_TYPE_STUDENT);
