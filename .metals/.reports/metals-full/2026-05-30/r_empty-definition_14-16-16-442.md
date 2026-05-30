@@ -1,3 +1,14 @@
+error id: file:///C:/Users/carol/Desktop/UNIVERSIDAD/SID2/proyectoIntegradorSid/ProyectoSid2-losIlucionistas/src/main/java/co/icesi/UniPlan/controller/EventViewController.java:_empty_/AppUser#getId#
+file:///C:/Users/carol/Desktop/UNIVERSIDAD/SID2/proyectoIntegradorSid/ProyectoSid2-losIlucionistas/src/main/java/co/icesi/UniPlan/controller/EventViewController.java
+empty definition using pc, found symbol in pc: _empty_/AppUser#getId#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 10693
+uri: file:///C:/Users/carol/Desktop/UNIVERSIDAD/SID2/proyectoIntegradorSid/ProyectoSid2-losIlucionistas/src/main/java/co/icesi/UniPlan/controller/EventViewController.java
+text:
+```scala
 package co.icesi.UniPlan.controller;
 
 import co.icesi.UniPlan.dto.EventEnrollmentRequest;
@@ -223,7 +234,6 @@ public class EventViewController {
             @RequestParam(required = false) Integer teamsQuantity,
             @RequestParam(required = false) String totalHours,
             @RequestParam(required = false) Integer prerequisites, 
-            @RequestParam(required = false) Integer minSemester,
             Authentication auth,
             Model model) {
 
@@ -246,12 +256,9 @@ public class EventViewController {
 
             // Construir EventDetails con el código del programa como prerequisito
             EventDetails eventDetails = null;
-            if (prerequisites != null || minSemester != null) {
+            if (prerequisites != null) {
                 eventDetails = EventDetails.builder()
-                        .prerequisites(prerequisites != null
-                                ? String.valueOf(prerequisites)
-                                : null)
-                        .minSemester(minSemester)               // ← agregar
+                        .prerequisites(String.valueOf(prerequisites)) // guarda el código del programa
                         .build();
             }
 
@@ -268,7 +275,7 @@ public class EventViewController {
                     .teamsQuantity(teamsQuantity)
                     .totalHours(totalHours)
                     .eventDetails(eventDetails) 
-                    .organizerId(organizer != null ? organizer.getId() : null)
+                    .organizerId(organizer != null ? organizer.g@@etId() : null)
                     .organizerType(organizer != null ? organizer.getUserType() : null)
                     .build();
 
@@ -282,3 +289,9 @@ public class EventViewController {
         }
     }
 }
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/AppUser#getId#
