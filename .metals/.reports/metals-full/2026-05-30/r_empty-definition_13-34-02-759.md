@@ -1,3 +1,14 @@
+error id: file:///C:/Users/carol/Desktop/UNIVERSIDAD/SID2/proyectoIntegradorSid/ProyectoSid2-losIlucionistas/src/main/java/co/icesi/UniPlan/service/EventService.java:_empty_/EventDetails#getMinSemester#
+file:///C:/Users/carol/Desktop/UNIVERSIDAD/SID2/proyectoIntegradorSid/ProyectoSid2-losIlucionistas/src/main/java/co/icesi/UniPlan/service/EventService.java
+empty definition using pc, found symbol in pc: _empty_/EventDetails#getMinSemester#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 11343
+uri: file:///C:/Users/carol/Desktop/UNIVERSIDAD/SID2/proyectoIntegradorSid/ProyectoSid2-losIlucionistas/src/main/java/co/icesi/UniPlan/service/EventService.java
+text:
+```scala
 package co.icesi.UniPlan.service;
 
 import co.icesi.UniPlan.dto.EnrolledUserResponse;
@@ -62,7 +73,7 @@ public class EventService {
         return eventRepository.findAll().stream()
                 .filter(event -> isBlank(type) || equalsIgnoreCase(event.getType(), type))
                 .filter(event -> isBlank(status) || equalsIgnoreCase(resolveTemporalStatus(event), status)
-                        || equalsIgnoreCase(event.getStatus(), status))
+ equalsIgnoreCase(event.getStatus(), status))
                 .filter(event -> start == null || !event.getStartDate().isBefore(start))
                 .filter(event -> end == null || !event.getStartDate().isAfter(end))
                 .sorted(Comparator.comparing(Event::getStartDate, Comparator.nullsLast(Comparator.naturalOrder())))
@@ -232,74 +243,75 @@ public class EventService {
         validateEventTypeRules(event, request);
     }
 
-    private void validateEventTypeRules(Event event, EventEnrollmentRequest request) {
-        String type = normalize(event.getType());
-        if (type.contains("taller") || type.contains("workshop")) {
-            validateWorkshopRule(event.getEventDetails(), request.institutionalId());
-        }
-        if (type.contains("torneo") || type.contains("sport") || type.contains("deport")) {
-            validateTournamentOverlap(event, request.institutionalId());
-        }
-        if (type.contains("volunt")) {
-            validateVolunteerRule(event);
+    private void validateWorkshopRule(EventDetails details, String institutionalId) {
+    if (details == null) return;
+
+    // 1. Validar semestre mínimo (lógica existente)
+    if (details.getMinSe@@mester() != null) {
+        int approvedEnrollments = enrollmentRepository
+                .findByIdStudentId(institutionalId).stream()
+                .filter(e -> e.getStatus() == null
+ !"cancelled".equalsIgnoreCase(e.getStatus()))
+                .toList()
+                .size();
+        if (approvedEnrollments < details.getMinSemester()) {
+            throw new BusinessException(
+                    "El estudiante no cumple el semestre mínimo requerido para el taller");
         }
     }
 
-    private void validateWorkshopRule(EventDetails details, String institutionalId) {
-        if (details == null) return;
-
-        // 1. Validar semestre mínimo (lógica existente)
-        if (details.getMinSemester() != null) {
-            int approvedEnrollments = enrollmentRepository
-                    .findByIdStudentId(institutionalId).stream()
-                    .filter(e -> e.getStatus() == null
-                            || !"cancelled".equalsIgnoreCase(e.getStatus()))
-                    .toList()
-                    .size();
-            if (approvedEnrollments < details.getMinSemester()) {
-                throw new BusinessException(
-                        "El estudiante no cumple el semestre mínimo requerido para el taller");
-            }
+    // 2. Validar programa requerido (lógica nueva)
+    if (details.getPrerequisites() != null && !details.getPrerequisites().isBlank()) {
+        Integer requiredProgramCode;
+        try {
+            requiredProgramCode = Integer.parseInt(details.getPrerequisites());
+        } catch (NumberFormatException e) {
+            // Si no es un código numérico, omitir validación de programa
+            return;
         }
 
-        // 2. Validar programa requerido (lógica nueva)
-        if (details.getPrerequisites() != null && !details.getPrerequisites().isBlank()) {
-            Integer requiredProgramCode;
-            try {
-                requiredProgramCode = Integer.parseInt(details.getPrerequisites());
-            } catch (NumberFormatException e) {
-                // Si no es un código numérico, omitir validación de programa
-                return;
-            }
+        // Obtener todas las materias del programa requerido
+        // Subject → Group (NRC) → Enrollment (student_id)
+        boolean isEnrolledInProgram = enrollmentRepository
+                .findByIdStudentId(institutionalId)
+                .stream()
+                .filter(enrollment -> enrollment.getStatus() == null
+ !"cancelled".equalsIgnoreCase(enrollment.getStatus()))
+                .map(enrollment -> {
+                    // Obtener el Group para leer el Subject
+                    return groupRepository.findById(enrollment.getId().getNrc())
+                            .orElse(null);
+                })
+                .filter(group -> group != null && group.getSubject() != null
+                        && group.getSubject().getProgram() != null)
+                .anyMatch(group ->
+                        requiredProgramCode.equals(
+                                group.getSubject().getProgram().getCode()));
 
-            // Obtener todas las materias del programa requerido
-            // Subject → Group (NRC) → Enrollment (student_id)
-            boolean isEnrolledInProgram = enrollmentRepository
-                    .findByIdStudentId(institutionalId)
-                    .stream()
-                    .filter(enrollment -> enrollment.getStatus() == null
-                            || !"cancelled".equalsIgnoreCase(enrollment.getStatus()))
-                    .map(enrollment -> {
-                        // Obtener el Group para leer el Subject
-                        return groupRepository.findById(enrollment.getId().getNrc())
-                                .orElse(null);
-                    })
-                    .filter(group -> group != null && group.getSubject() != null
-                            && group.getSubject().getProgram() != null)
-                    .anyMatch(group ->
-                            requiredProgramCode.equals(
-                                    group.getSubject().getProgram().getCode()));
+        if (!isEnrolledInProgram) {
+            // Obtener el nombre del programa para el mensaje
+            String programName = programRepository.findById(requiredProgramCode)
+                    .map(p -> p.getName())
+                    .orElse("código " + requiredProgramCode);
 
-            if (!isEnrolledInProgram) {
-                // Obtener el nombre del programa para el mensaje
-                String programName = programRepository.findById(requiredProgramCode)
-                        .map(p -> p.getName())
-                        .orElse("código " + requiredProgramCode);
+            throw new BusinessException(
+                    "El estudiante debe estar inscrito en el programa '"
+                    + programName + "' para inscribirse en este taller");
+        }
+    }
+}
 
-                throw new BusinessException(
-                        "El estudiante debe estar inscrito en el programa '"
-                        + programName + "' para inscribirse en este taller");
-            }
+    private void validateWorkshopRule(EventDetails details, String institutionalId) {
+        if (details == null || details.getMinSemester() == null) {
+            return;
+        }
+        int approvedEnrollments = enrollmentRepository.findByIdStudentId(institutionalId).stream()
+                .map(Enrollment::getStatus)
+                .filter(status -> status == null || !"cancelled".equalsIgnoreCase(status))
+                .toList()
+                .size();
+        if (approvedEnrollments < details.getMinSemester()) {
+            throw new BusinessException("El estudiante no cumple el semestre minimo requerido para el taller");
         }
     }
 
@@ -307,8 +319,8 @@ public class EventService {
         boolean overlaps = eventRepository.findAll().stream()
                 .filter(other -> !Objects.equals(other.getId(), event.getId()))
                 .filter(other -> normalize(other.getType()).contains("torneo")
-                        || normalize(other.getType()).contains("sport")
-                        || normalize(other.getType()).contains("deport"))
+ normalize(other.getType()).contains("sport")
+ normalize(other.getType()).contains("deport"))
                 .filter(other -> safeInscriptions(other).stream()
                         .anyMatch(inscription -> isActive(inscription)
                                 && sameStudent(inscription, institutionalId)))
@@ -433,3 +445,10 @@ public class EventService {
         return value == null ? "" : value.toLowerCase(Locale.ROOT);
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/EventDetails#getMinSemester#
