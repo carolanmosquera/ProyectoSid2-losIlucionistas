@@ -95,6 +95,7 @@ public class EventService {
 
     public Event update(String id, Event event) {
         Event current = findById(id);
+        validateCanModify(current);
         validateEventForPublication(event);
 
         current.setTitle(event.getTitle());
@@ -117,6 +118,24 @@ public class EventService {
         current.setAvailableSlots(calculateAvailableSlots(current));
         current.setUpdatedAt(Instant.now());
         return eventRepository.save(current);
+    }
+
+    public void delete(String id) {
+        Event current = findById(id);
+        validateCanModify(current);
+        eventRepository.delete(current);
+    }
+
+    public boolean canModify(String id) {
+        return !hasActiveInscriptions(findById(id));
+    }
+
+    public boolean canModify(Event event) {
+        return !hasActiveInscriptions(event);
+    }
+
+    public long activeInscriptionCount(Event event) {
+        return safeInscriptions(event).stream().filter(this::isActive).count();
     }
 
     public Inscription enroll(String eventId, EventEnrollmentRequest request) {
@@ -207,6 +226,12 @@ public class EventService {
         }
         if (event.getMaxSlots() == null || event.getMaxSlots() <= 0) {
             throw new BusinessException("Los cupos maximos deben ser mayores a cero");
+        }
+    }
+
+    private void validateCanModify(Event event) {
+        if (hasActiveInscriptions(event)) {
+            throw new BusinessException("No se puede editar o eliminar un evento con inscripciones activas");
         }
     }
 
@@ -385,6 +410,10 @@ public class EventService {
 
     private List<Inscription> safeInscriptions(Event event) {
         return event.getInscriptions() == null ? List.of() : event.getInscriptions();
+    }
+
+    private boolean hasActiveInscriptions(Event event) {
+        return safeInscriptions(event).stream().anyMatch(this::isActive);
     }
 
     private boolean isActive(Inscription inscription) {

@@ -5,6 +5,7 @@ import co.icesi.UniPlan.model.User;
 import co.icesi.UniPlan.model.mongo.AppUser;
 import co.icesi.UniPlan.model.mongo.Event;
 import co.icesi.UniPlan.model.mongo.EventDetails;
+import co.icesi.UniPlan.model.mongo.SpeakerInfo;
 import co.icesi.UniPlan.repository.ProgramRepository;
 import co.icesi.UniPlan.repository.UserRepository;
 import co.icesi.UniPlan.repository.mongo.AppUserRepository;
@@ -25,6 +26,8 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.Arrays;
+import java.util.List;
 
 @Controller
 public class EventViewController {
@@ -79,6 +82,14 @@ public class EventViewController {
             return LocalDateTime.parse(value, DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"))
                     .toInstant(colombiaOffset);
         }
+    }
+
+    private String formatForDateTimeLocal(Instant value) {
+        if (value == null) {
+            return "";
+        }
+        return LocalDateTime.ofInstant(value, ZoneOffset.of("-05:00"))
+                .format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm"));
     }
 
     // ─────────────────────────────────────────────────────────────────────────
@@ -201,11 +212,131 @@ public class EventViewController {
     // CREATE EVENT
     // ─────────────────────────────────────────────────────────────────────────
 
+    @GetMapping("/events/{id}/edit")
+    public String editEventForm(@PathVariable String id, Authentication auth, Model model,
+            RedirectAttributes redirectAttributes) {
+        if (auth == null) {
+            return "redirect:/login";
+        }
+        if (eventService == null) {
+            return "redirect:/dashboard";
+        }
+        try {
+            Event event = eventService.findById(id);
+            if (!eventService.canModify(event)) {
+                redirectAttributes.addFlashAttribute("error",
+                        "No se puede editar un evento con inscripciones activas");
+                return "redirect:/dashboard";
+            }
+            addFormModelAttributes(model, event, true);
+            return "create-event";
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", e.getMessage());
+            return "redirect:/dashboard";
+        }
+    }
+
+    @PostMapping("/events/{id}/edit")
+    public String editEvent(
+            @PathVariable String id,
+            @RequestParam String title,
+            @RequestParam String description,
+            @RequestParam String type,
+            @RequestParam String location,
+            @RequestParam String startDate,
+            @RequestParam String endDate,
+            @RequestParam Integer maxSlots,
+            @RequestParam(required = false) String sportType,
+            @RequestParam(required = false) String tournamentType,
+            @RequestParam(required = false) Integer teamsQuantity,
+            @RequestParam(required = false) String totalHours,
+            @RequestParam(required = false, name = "eventDetails.requiredMaterials") String requiredMaterials,
+            @RequestParam(required = false, name = "eventDetails.prerequisites") String prerequisites,
+            @RequestParam(required = false, name = "eventDetails.minSemester") Integer minSemester,
+            @RequestParam(required = false, name = "eventDetails.speakerInfo.name") String speakerName,
+            @RequestParam(required = false, name = "eventDetails.speakerInfo.affiliation") String speakerMembership,
+            @RequestParam(required = false, name = "eventDetails.speakerInfo.profile") String speakerProfile,
+            @RequestParam(required = false, name = "eventDetails.playerPerTeam") Integer playerPerTeam,
+            @RequestParam(required = false, name = "eventDetails.helpedCommunity") String helpedCommunity,
+            @RequestParam(required = false, name = "eventDetails.logisticInfo") String logisticInfo,
+            @RequestParam(required = false, name = "eventDetails.reason") String reason,
+            Model model,
+            RedirectAttributes redirectAttributes) {
+
+        if (eventService == null) {
+            return "redirect:/dashboard";
+        }
+
+        try {
+            Event current = eventService.findById(id);
+            Event event = Event.builder()
+                    .title(title)
+                    .description(description)
+                    .type(type)
+                    .location(location)
+                    .startDate(parseDate(startDate))
+                    .endDate(parseDate(endDate))
+                    .maxSlots(maxSlots)
+                    .sportType(sportType)
+                    .tournamentType(tournamentType)
+                    .teamsQuantity(teamsQuantity)
+                    .totalHours(totalHours)
+                    .organizationId(current.getOrganizationId())
+                    .organizerId(current.getOrganizerId())
+                    .organizerType(current.getOrganizerType())
+                    .eventDetails(buildEventDetails(requiredMaterials, prerequisites, minSemester,
+                            speakerName, speakerMembership, speakerProfile, playerPerTeam,
+                            helpedCommunity, logisticInfo, reason))
+                    .status(current.getStatus())
+                    .build();
+
+            eventService.update(id, event);
+            redirectAttributes.addFlashAttribute("success", "Evento actualizado correctamente");
+            return "redirect:/dashboard";
+
+        } catch (Exception e) {
+            model.addAttribute("error", e.getMessage());
+            Event event = Event.builder()
+                    .id(id)
+                    .title(title)
+                    .description(description)
+                    .type(type)
+                    .location(location)
+                    .maxSlots(maxSlots)
+                    .sportType(sportType)
+                    .tournamentType(tournamentType)
+                    .teamsQuantity(teamsQuantity)
+                    .totalHours(totalHours)
+                    .eventDetails(buildEventDetails(requiredMaterials, prerequisites, minSemester,
+                            speakerName, speakerMembership, speakerProfile, playerPerTeam,
+                            helpedCommunity, logisticInfo, reason))
+                    .build();
+            addFormModelAttributes(model, event, true);
+            model.addAttribute("startDateValue", startDate);
+            model.addAttribute("endDateValue", endDate);
+            return "create-event";
+        }
+    }
+
+    @PostMapping("/events/{id}/delete")
+    public String deleteEvent(@PathVariable String id, RedirectAttributes redirectAttributes) {
+        if (eventService == null) {
+            return "redirect:/dashboard";
+        }
+        try {
+            eventService.delete(id);
+            redirectAttributes.addFlashAttribute("success", "Evento eliminado correctamente");
+        } catch (Exception e) {
+            redirectAttributes.addFlashAttribute("error", e.getMessage());
+        }
+        return "redirect:/dashboard";
+    }
+
     @GetMapping("/events/create")
     public String createEventForm(Authentication auth, Model model) {
         if (auth == null)
             return "redirect:/login";
-            model.addAttribute("programs", programRepository.findAll());
+        addFormModelAttributes(model, null, false);
         return "create-event";
     }
 
@@ -222,8 +353,16 @@ public class EventViewController {
             @RequestParam(required = false) String tournamentType,
             @RequestParam(required = false) Integer teamsQuantity,
             @RequestParam(required = false) String totalHours,
-            @RequestParam(required = false) Integer prerequisites, 
-            @RequestParam(required = false) Integer minSemester,
+            @RequestParam(required = false, name = "eventDetails.requiredMaterials") String requiredMaterials,
+            @RequestParam(required = false, name = "eventDetails.prerequisites") String prerequisites,
+            @RequestParam(required = false, name = "eventDetails.minSemester") Integer minSemester,
+            @RequestParam(required = false, name = "eventDetails.speakerInfo.name") String speakerName,
+            @RequestParam(required = false, name = "eventDetails.speakerInfo.affiliation") String speakerMembership,
+            @RequestParam(required = false, name = "eventDetails.speakerInfo.profile") String speakerProfile,
+            @RequestParam(required = false, name = "eventDetails.playerPerTeam") Integer playerPerTeam,
+            @RequestParam(required = false, name = "eventDetails.helpedCommunity") String helpedCommunity,
+            @RequestParam(required = false, name = "eventDetails.logisticInfo") String logisticInfo,
+            @RequestParam(required = false, name = "eventDetails.reason") String reason,
             Authentication auth,
             Model model) {
 
@@ -267,7 +406,9 @@ public class EventViewController {
                     .tournamentType(tournamentType)
                     .teamsQuantity(teamsQuantity)
                     .totalHours(totalHours)
-                    .eventDetails(eventDetails) 
+                    .eventDetails(buildEventDetails(requiredMaterials, prerequisites, minSemester,
+                            speakerName, speakerMembership, speakerProfile, playerPerTeam,
+                            helpedCommunity, logisticInfo, reason))
                     .organizerId(organizer != null ? organizer.getId() : null)
                     .organizerType(organizer != null ? organizer.getUserType() : null)
                     .build();
@@ -277,8 +418,91 @@ public class EventViewController {
 
         } catch (Exception e) {
             model.addAttribute("error", e.getMessage());
-            model.addAttribute("programs", programRepository.findAll());
+            addFormModelAttributes(model, null, false);
             return "create-event";
         }
+    }
+
+    private void addFormModelAttributes(Model model, Event event, boolean editMode) {
+        model.addAttribute("programs", programRepository.findAll());
+        model.addAttribute("event", event);
+        model.addAttribute("editMode", editMode);
+        model.addAttribute("formAction", editMode && event != null
+                ? "/events/" + event.getId() + "/edit"
+                : "/events/create");
+        model.addAttribute("startDateValue", event == null ? "" : formatForDateTimeLocal(event.getStartDate()));
+        model.addAttribute("endDateValue", event == null ? "" : formatForDateTimeLocal(event.getEndDate()));
+        model.addAttribute("requiredMaterialsValue", joinRequiredMaterials(event));
+    }
+
+    private EventDetails buildEventDetails(
+            String requiredMaterials,
+            String prerequisites,
+            Integer minSemester,
+            String speakerName,
+            String speakerMembership,
+            String speakerProfile,
+            Integer playerPerTeam,
+            String helpedCommunity,
+            String logisticInfo,
+            String reason) {
+
+        SpeakerInfo speakerInfo = null;
+        if (!isBlank(speakerName) || !isBlank(speakerMembership) || !isBlank(speakerProfile)) {
+            speakerInfo = SpeakerInfo.builder()
+                    .name(blankToNull(speakerName))
+                    .membership(blankToNull(speakerMembership))
+                    .profile(blankToNull(speakerProfile))
+                    .build();
+        }
+
+        List<String> materials = parseRequiredMaterials(requiredMaterials);
+        if (materials.isEmpty()
+                && isBlank(prerequisites)
+                && minSemester == null
+                && speakerInfo == null
+                && playerPerTeam == null
+                && isBlank(helpedCommunity)
+                && isBlank(logisticInfo)
+                && isBlank(reason)) {
+            return null;
+        }
+
+        return EventDetails.builder()
+                .requiredMaterials(materials.isEmpty() ? null : materials)
+                .prerequisites(blankToNull(prerequisites))
+                .minSemester(minSemester)
+                .speakerInfo(speakerInfo)
+                .playerPerTeam(playerPerTeam)
+                .helpedCommunity(blankToNull(helpedCommunity))
+                .logisticInfo(blankToNull(logisticInfo))
+                .reason(blankToNull(reason))
+                .build();
+    }
+
+    private List<String> parseRequiredMaterials(String value) {
+        if (isBlank(value)) {
+            return List.of();
+        }
+        return Arrays.stream(value.split("\\r?\\n|,"))
+                .map(String::trim)
+                .filter(material -> !material.isBlank())
+                .toList();
+    }
+
+    private String joinRequiredMaterials(Event event) {
+        if (event == null || event.getEventDetails() == null
+                || event.getEventDetails().getRequiredMaterials() == null) {
+            return "";
+        }
+        return String.join("\n", event.getEventDetails().getRequiredMaterials());
+    }
+
+    private String blankToNull(String value) {
+        return isBlank(value) ? null : value;
+    }
+
+    private boolean isBlank(String value) {
+        return value == null || value.isBlank();
     }
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>UniPlan — Crear Evento</title>
+    <title th:text="${editMode} ? 'UniPlan - Editar Evento' : 'UniPlan - Crear Evento'">UniPlan - Crear Evento</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
     <style>
         :root {
@@ -94,41 +94,41 @@
 
 <nav>
     <a class="brand" th:href="@{/dashboard}">
-        <div class="brand-icon">📅</div>
+        <div class="brand-icon">Cal</div>
         <span class="brand-name">UniPlan</span>
     </a>
     <div class="nav-right">
         <span style="color:#94a3b8;font-size:.88rem">
             Hola, <strong style="color:white" th:text="${#authentication?.name}">Organizador</strong>
         </span>
-        <a class="btn-nav" th:href="@{/dashboard}">← Dashboard</a>
+        <a class="btn-nav" th:href="@{/dashboard}"><- Dashboard</a>
     </div>
 </nav>
 
 <div class="page-header">
-    <h1>Crear Evento</h1>
-    <p>Completa la información del evento. Los campos marcados con <span style="color:#f87171">*</span> son obligatorios.</p>
+    <h1 th:text="${editMode} ? 'Editar Evento' : 'Crear Evento'">Crear Evento</h1>
+    <p th:text="${editMode} ? 'Actualiza la INFORMACION del evento. Solo se permite editar eventos sin inscripciones activas.' : 'Completa la INFORMACION del evento. Los campos marcados con * son obligatorios.'">Completa la INFORMACION del evento.</p>
 </div>
 
 <div class="content">
 
     <div th:if="${error}" class="alert alert-error" th:text="${error}">Error</div>
-    <div th:if="${success}" class="alert alert-success">¡Evento creado exitosamente!</div>
+    <div th:if="${success}" class="alert alert-success">Evento creado exitosamente!</div>
 
-    <form th:action="@{/events/create}" method="post" id="eventForm">
+    <form th:action="${formAction}" method="post" id="eventForm">
 
-        <!-- ── INFORMACIÓN GENERAL ── -->
+        <!-- -- INFORMACION GENERAL -- -->
         <div class="form-card">
-            <h2>📋 Información general</h2>
+            <h2> INFORMACION general</h2>
 
             <div class="field">
-                <label>Título <span class="required">*</span></label>
-                <input type="text" name="title" placeholder="Ej: Taller de Programación en Python" required/>
+                <label>Titulo <span class="required">*</span></label>
+                <input type="text" name="title" placeholder="Ej: Taller de Programacion en Python" th:value="${event?.title}" required/>
             </div>
 
             <div class="field">
-                <label>Descripción <span class="required">*</span></label>
-                <textarea name="description" placeholder="Describe el objetivo, contenido y beneficios del evento..."></textarea>
+                <label>Descripcion <span class="required">*</span></label>
+                <textarea name="description" placeholder="Describe el objetivo, contenido y beneficios del evento..." th:text="${event?.description}"></textarea>
             </div>
 
             <div class="grid-2">
@@ -136,202 +136,182 @@
                     <label>Tipo de evento <span class="required">*</span></label>
                     <select name="type" id="eventType" onchange="updateTypeSection()" required>
                         <option value="">Selecciona un tipo...</option>
-                        <option value="WORKSHOP">Taller</option>
-                        <option value="TALK">Charla</option>
-                        <option value="SPORTS">Torneo deportivo</option>
-                        <option value="VOLUNTEER">Voluntariado</option>
-                        <option value="OTHER">Otro (cultural, club, etc.)</option>
+                        <option value="WORKSHOP" th:selected="${event?.type == 'WORKSHOP'}">Taller</option>
+                        <option value="TALK" th:selected="${event?.type == 'TALK'}">Charla</option>
+                        <option value="SPORTS" th:selected="${event?.type == 'SPORTS'}">Torneo deportivo</option>
+                        <option value="VOLUNTEER" th:selected="${event?.type == 'VOLUNTEER'}">Voluntariado</option>
+                        <option value="OTHER" th:selected="${event?.type == 'OTHER'}">Otro (cultural, club, etc.)</option>
                     </select>
                 </div>
                 <div class="field">
-                    <label>Ubicación <span class="required">*</span></label>
-                    <input type="text" name="location" placeholder="Ej: Aula 301, Bloque A" required/>
+                    <label>Ubicacion <span class="required">*</span></label>
+                    <input type="text" name="location" placeholder="Ej: Aula 301, Bloque A" th:value="${event?.location}" required/>
                 </div>
             </div>
 
             <div class="grid-3">
                 <div class="field">
                     <label>Fecha y hora de inicio <span class="required">*</span></label>
-                    <input type="datetime-local" name="startDate" id="startDate" required/>
+                    <input type="datetime-local" name="startDate" id="startDate" th:value="${startDateValue}" required/>
                 </div>
                 <div class="field">
                     <label>Fecha y hora de fin <span class="required">*</span></label>
-                    <input type="datetime-local" name="endDate" id="endDate" required/>
+                    <input type="datetime-local" name="endDate" id="endDate" th:value="${endDateValue}" required/>
                 </div>
                 <div class="field">
-                    <label>Cupos máximos <span class="required">*</span></label>
-                    <input type="number" name="maxSlots" min="1" placeholder="Ej: 30" required/>
+                    <label>Cupos maximos <span class="required">*</span></label>
+                    <input type="number" name="maxSlots" min="1" placeholder="Ej: 30" th:value="${event?.maxSlots}" required/>
                     <small>Debe ser mayor a 0</small>
                 </div>
             </div>
         </div>
 
-         <!-- ── SECCIÓN TALLER (WORKSHOP) ── -->
+         <!-- -- SECCION TALLER (WORKSHOP) -- -->
         <div class="form-card type-section" id="section-WORKSHOP">
-            <h2>🛠️ Detalles del taller</h2>
+            <h2> Detalles del taller</h2>
             <div class="type-badge workshop">TALLER</div>
 
             <div class="field">
                 <label>Materiales requeridos</label>
-                <textarea name="eventDetails.requiredMaterials"
-                          placeholder="Lista los materiales que los participantes deben traer. Ej: Laptop, cuaderno, lápiz..."></textarea>
-                <small>Opcional — describe qué deben traer los participantes</small>
+                <textarea name="eventDetails.requiredMaterials" placeholder="Lista los materiales que los participantes deben traer. Ej: Laptop, cuaderno, lapiz..." th:text="${requiredMaterialsValue}"></textarea>
+                <small>Opcional - describe que deben traer los participantes</small>
             </div>
 
             <!-- Fragmento integrado: Select de programa requerido (prerequisito) -->
             <div class="field">
                 <label for="prerequisites">Programa requerido (prerequisito)</label>
-                <select id="prerequisites" name="prerequisites">
-                    <option value="">— Sin requisito de programa —</option>
+                <select id="prerequisites" name="eventDetails.prerequisites">
+                    <option value="">- Sin requisito de programa -</option>
                     <!-- Thymeleaf itera los programas enviados desde el controlador -->
-                    <option th:each="program : ${programs}"
-                            th:value="${program.code}"
-                            th:text="${program.name}">
+                    <option th:each="program : ${programs}" th:value="${program.code}" th:text="${program.name}" th:selected="${event?.eventDetails?.prerequisites == program.code}">
                     </option>
                 </select>
             </div>
 
             <div class="grid-2">
                 <div class="field">
-                    <label>Semestre mínimo requerido</label>
-                    <input type="number" name="minSemester" min="1" max="12" placeholder="Ej: 3"/>
-                    <small>Opcional — semestre mínimo del estudiante</small>
+                    <label>Semestre minimo requerido</label>
+                    <input type="number" name="eventDetails.minSemester" min="1" max="12" placeholder="Ej: 3" th:value="${event?.eventDetails?.minSemester}"/>
+                    <small>Opcional - semestre minimo del estudiante</small>
                 </div>
             </div>
         </div>
 
-        <!-- ── SECCIÓN CHARLA (TALK) ── -->
+        <!-- -- SECCION CHARLA (TALK) -- -->
         <div class="form-card type-section" id="section-TALK">
-            <h2>🎤 Detalles de la charla</h2>
+            <h2> Detalles de la charla</h2>
             <div class="type-badge talk">CHARLA</div>
 
             <div class="grid-2">
                 <div class="field">
                     <label>Nombre del conferencista</label>
-                    <input type="text" name="eventDetails.speakerInfo.name"
-                           placeholder="Ej: Dr. Juan Pérez"/>
+                    <input type="text" name="eventDetails.speakerInfo.name" placeholder="Ej: Dr. Juan Perez" th:value="${event?.eventDetails?.speakerInfo?.name}"/>
                 </div>
                 <div class="field">
-                    <label>Afiliación del conferencista</label>
-                    <input type="text" name="eventDetails.speakerInfo.affiliation"
-                           placeholder="Ej: Universidad Nacional"/>
+                    <label>Afiliacion del conferencista</label>
+                    <input type="text" name="eventDetails.speakerInfo.affiliation" placeholder="Ej: Universidad Nacional" th:value="${event?.eventDetails?.speakerInfo?.membership}"/>
                 </div>
             </div>
 
             <div class="field">
-                <label>Perfil / Biografía</label>
-                <textarea name="eventDetails.speakerInfo.profile"
-                          placeholder="Breve descripción del conferencista, sus logros y experiencia..."
-                          style="min-height:80px"></textarea>
+                <label>Perfil / Biografia</label>
+                <textarea name="eventDetails.speakerInfo.profile" placeholder="Breve descripcion del conferencista, sus logros y experiencia..." style="min-height:80px" th:text="${event?.eventDetails?.speakerInfo?.profile}"></textarea>
             </div>
 
             <div class="field">
                 <label>Enlace de streaming</label>
                 <input type="url" name="eventDetails.speakerInfo.streamingUrl"
                        placeholder="https://meet.google.com/..."/>
-                <small>Opcional — link para seguir la charla en línea</small>
+                <small>Opcional - link para seguir la charla en linea</small>
             </div>
 
             <div class="field">
                 <label>Recursos relacionados</label>
                 <input type="url" name="eventDetails.speakerInfo.resourcesUrl"
                        placeholder="https://drive.google.com/..."/>
-                <small>Opcional — materiales de apoyo, presentaciones, etc.</small>
+                <small>Opcional - materiales de apoyo, presentaciones, etc.</small>
             </div>
         </div>
 
-        <!-- ── SECCIÓN TORNEO DEPORTIVO (SPORTS) ── -->
+        <!-- -- SECCION TORNEO DEPORTIVO (SPORTS) -- -->
         <div class="form-card type-section" id="section-SPORTS">
-            <h2>🏆 Detalles del torneo deportivo</h2>
+            <h2> Detalles del torneo deportivo</h2>
             <div class="type-badge sports">TORNEO DEPORTIVO</div>
 
             <div class="grid-2">
                 <div class="field">
                     <label>Tipo de deporte <span class="required">*</span></label>
-                    <input type="text" name="sportType"
-                           placeholder="Ej: Fútbol sala, Baloncesto, Voleibol"/>
+                    <input type="text" name="sportType" placeholder="Ej: Futbol sala, Baloncesto, Voleibol" th:value="${event?.sportType}"/>
                 </div>
                 <div class="field">
                     <label>Estructura del torneo</label>
                     <select name="tournamentType">
                         <option value="">Selecciona...</option>
-                        <option value="elimination">Eliminación directa</option>
-                        <option value="groups">Fase de grupos</option>
-                        <option value="groups_elimination">Grupos + Eliminación</option>
-                        <option value="round_robin">Todos contra todos</option>
+                        <option value="elimination" th:selected="${event?.tournamentType == 'elimination'}">Eliminacion directa</option>
+                        <option value="groups" th:selected="${event?.tournamentType == 'groups'}">Fase de grupos</option>
+                        <option value="groups_elimination" th:selected="${event?.tournamentType == 'groups_elimination'}">Grupos + Eliminacion</option>
+                        <option value="round_robin" th:selected="${event?.tournamentType == 'round_robin'}">Todos contra todos</option>
                     </select>
                 </div>
             </div>
 
             <div class="grid-2">
                 <div class="field">
-                    <label>Número de equipos</label>
-                    <input type="number" name="teamsQuantity" min="2"
-                           placeholder="Ej: 8"/>
+                    <label>Numero de equipos</label>
+                    <input type="number" name="teamsQuantity" min="2" placeholder="Ej: 8" th:value="${event?.teamsQuantity}"/>
                 </div>
                 <div class="field">
                     <label>Jugadores por equipo</label>
-                    <input type="number" name="eventDetails.playerPerTeam" min="1"
-                           placeholder="Ej: 5"/>
+                    <input type="number" name="eventDetails.playerPerTeam" min="1" placeholder="Ej: 5" th:value="${event?.eventDetails?.playerPerTeam}"/>
                 </div>
             </div>
 
             <div class="field">
-                <label>Reglas específicas del torneo</label>
-                <textarea name="eventDetails.reason"
-                          placeholder="Describe las reglas particulares, formato de juego, criterios de desempate..."
-                          style="min-height:80px"></textarea>
+                <label>Reglas especificas del torneo</label>
+                <textarea name="eventDetails.reason" placeholder="Describe las reglas particulares, formato de juego, criterios de desempate..." style="min-height:80px" th:text="${event?.eventDetails?.reason}"></textarea>
             </div>
         </div>
 
-        <!-- ── SECCIÓN VOLUNTARIADO (VOLUNTEER) ── -->
+        <!-- -- SECCION VOLUNTARIADO (VOLUNTEER) -- -->
         <div class="form-card type-section" id="section-VOLUNTEER">
-            <h2>🤝 Detalles del voluntariado</h2>
+            <h2> Detalles del voluntariado</h2>
             <div class="type-badge volunteer">VOLUNTARIADO</div>
 
             <div class="grid-2">
                 <div class="field">
                     <label>Causa o comunidad beneficiada</label>
-                    <input type="text" name="eventDetails.helpedCommunity"
-                           placeholder="Ej: Adultos mayores del barrio La Flora"/>
+                    <input type="text" name="eventDetails.helpedCommunity" placeholder="Ej: Adultos mayores del barrio La Flora" th:value="${event?.eventDetails?.helpedCommunity}"/>
                 </div>
                 <div class="field">
                     <label>Horas requeridas</label>
-                    <input type="number" name="totalHours" min="1"
-                           placeholder="Ej: 8"/>
-                    <small>Mínimo de horas que debe cumplir el voluntario</small>
+                    <input type="number" name="totalHours" min="1" placeholder="Ej: 8" th:value="${event?.totalHours}"/>
+                    <small>Minimo de horas que debe cumplir el voluntario</small>
                 </div>
             </div>
 
             <div class="field">
                 <label>Actividades a realizar</label>
-                <textarea name="eventDetails.logisticInfo"
-                          placeholder="Describe las actividades que realizarán los voluntarios: siembra de árboles, clases de apoyo, recolección de alimentos..."
-                          style="min-height:80px"></textarea>
+                <textarea name="eventDetails.logisticInfo" placeholder="Describe las actividades que realizaran los voluntarios: siembra de arboles, clases de apoyo, recoleccion de alimentos..." style="min-height:80px" th:text="${event?.eventDetails?.logisticInfo}"></textarea>
             </div>
 
             <div class="field">
-                <label>Información logística</label>
-                <textarea name="eventDetails.reason"
-                          placeholder="Puntos de encuentro, responsables, qué traer, transporte disponible..."
-                          style="min-height:80px"></textarea>
+                <label>INFORMACION logistica</label>
+                <textarea name="eventDetails.reason" placeholder="Puntos de encuentro, responsables, que traer, transporte disponible..." style="min-height:80px" th:text="${event?.eventDetails?.reason}"></textarea>
             </div>
         </div>
 
-        <!-- ── SECCIÓN OTRO ── -->
+        <!-- -- SECCION OTRO -- -->
         <div class="form-card type-section" id="section-OTHER">
-            <h2>🎭 Información adicional</h2>
+            <h2> INFORMACION adicional</h2>
             <div class="field">
-                <label>Información adicional</label>
-                <textarea name="eventDetails.reason"
-                          placeholder="Agrega cualquier información relevante para este tipo de evento cultural, club, etc."
-                          style="min-height:100px"></textarea>
+                <label>INFORMACION adicional</label>
+                <textarea name="eventDetails.reason" placeholder="Agrega cualquier INFORMACION relevante para este tipo de evento cultural, club, etc." style="min-height:100px" th:text="${event?.eventDetails?.reason}"></textarea>
             </div>
         </div>
 
-        <!-- ── BOTONES ── -->
+        <!-- -- BOTONES -- -->
         <div class="form-card">
-            <button type="submit" class="btn-submit">Crear evento</button>
+            <button type="submit" class="btn-submit" th:text="${editMode} ? 'Guardar cambios' : 'Crear evento'">Crear evento</button>
             <a class="btn-cancel" th:href="@{/dashboard}">Cancelar</a>
         </div>
 
@@ -340,13 +320,20 @@
 
 <script>
     function updateTypeSection() {
-        document.querySelectorAll('.type-section').forEach(s => s.classList.remove('visible'));
+        document.querySelectorAll('.type-section').forEach(s => {
+            s.classList.remove('visible');
+            s.querySelectorAll('input, select, textarea').forEach(field => field.disabled = true);
+        });
         const type = document.getElementById('eventType').value;
         if (type) {
             const section = document.getElementById('section-' + type);
-            if (section) section.classList.add('visible');
+            if (section) {
+                section.classList.add('visible');
+                section.querySelectorAll('input, select, textarea').forEach(field => field.disabled = false);
+            }
         }
     }
+    document.addEventListener('DOMContentLoaded', updateTypeSection);
 </script>
 </body>
 </html>
