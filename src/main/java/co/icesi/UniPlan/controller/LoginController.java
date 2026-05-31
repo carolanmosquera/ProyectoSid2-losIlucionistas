@@ -41,6 +41,7 @@ public class LoginController {
             @RequestParam String institutionalEmail,
             @RequestParam String passwordHash,
             @RequestParam(defaultValue = "STUDENT") String userType,
+            @RequestParam(defaultValue = "false") boolean requestLeader, 
             Model model) {
 
         if (appUserService == null) {
@@ -49,7 +50,8 @@ public class LoginController {
         }
         try {
             appUserService.registerAppUser(new AppUserRegistrationRequest(
-                    institutionalId, institutionalEmail, passwordHash, null, userType));
+                    institutionalId, institutionalEmail, passwordHash, null, userType),
+                requestLeader);
             return "redirect:/login?registered";
         } catch (Exception e) {
             model.addAttribute("registerError", e.getMessage());

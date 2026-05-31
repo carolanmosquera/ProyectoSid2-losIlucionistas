@@ -1,3 +1,14 @@
+error id: file:///C:/Users/carol/Desktop/UNIVERSIDAD/SID2/proyectoIntegradorSid/ProyectoSid2-losIlucionistas/src/main/java/co/icesi/UniPlan/controller/api/AppUserController.java:_empty_/ResponseStatus#
+file:///C:/Users/carol/Desktop/UNIVERSIDAD/SID2/proyectoIntegradorSid/ProyectoSid2-losIlucionistas/src/main/java/co/icesi/UniPlan/controller/api/AppUserController.java
+empty definition using pc, found symbol in pc: _empty_/ResponseStatus#
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 1826
+uri: file:///C:/Users/carol/Desktop/UNIVERSIDAD/SID2/proyectoIntegradorSid/ProyectoSid2-losIlucionistas/src/main/java/co/icesi/UniPlan/controller/api/AppUserController.java
+text:
+```scala
 package co.icesi.UniPlan.controller.api;
 
 import co.icesi.UniPlan.dto.AppUserRegistrationRequest;
@@ -40,13 +51,13 @@ public class AppUserController {
     }
 
     @PostMapping("/students")
-    @ResponseStatus(HttpStatus.CREATED)
-    public AppUser registerStudent(@Valid @RequestBody AppUserRegistrationRequest request) {
-        return appUserService.registerAppUser(request, false);  
-    }
+@ResponseStatus(HttpStatus.CREATED)
+public AppUser registerStudent(@Valid @RequestBody AppUserRegistrationRequest request) {
+    return appUserService.registerAppUser(request, false);  // ← agregar false
+}
 
     @PostMapping("/organizers")
-    @ResponseStatus(HttpStatus.CREATED)
+    @Respon@@seStatus(HttpStatus.CREATED)
     public AppUser registerOrganizer(@Valid @RequestBody AppUserRegistrationRequest request) {
         return appUserService.registerOrganizer(request);
     }
@@ -56,3 +67,10 @@ public class AppUserController {
         return appUserService.updateStatus(id, status);
     }
 }
+
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: _empty_/ResponseStatus#

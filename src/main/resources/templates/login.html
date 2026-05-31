@@ -373,6 +373,24 @@
 
                 <button type="submit" class="btn-primary">Crear cuenta</button>
             </form>
+            <div class="field" id="leader-request-field" style="display:none">
+                <label style="display:flex; align-items:center; gap:.6rem; cursor:pointer;">
+                    <input type="checkbox" name="requestLeader" value="true"
+                        style="width:16px; height:16px; accent-color:var(--teal)"/>
+                    <span>Solicitar registro como <strong>Líder Estudiantil</strong></span>
+                </label>
+                <small style="color:var(--gray); margin-top:.3rem; display:block">
+                    Un administrador revisará tu solicitud. Mientras tanto podrás usar UniPlan como estudiante.
+                </small>
+            </div>
+
+            <script>
+            // Mostrar el checkbox solo si el tipo seleccionado es STUDENT
+            document.getElementById('userType')?.addEventListener('change', function () {
+                const field = document.getElementById('leader-request-field');
+                if (field) field.style.display = this.value === 'STUDENT' ? 'block' : 'none';
+            });
+            </script>
         </div>
     </div>
 </div>

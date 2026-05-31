@@ -1,6 +1,7 @@
 package co.icesi.UniPlan.controller;
 
 import co.icesi.UniPlan.model.mongo.Event;
+import co.icesi.UniPlan.service.AppUserService;
 import co.icesi.UniPlan.service.EventService;
 import java.time.Instant;
 import java.util.List;
@@ -20,8 +21,14 @@ public class HomeController {
     @Nullable
     private final EventService eventService;
 
-    public HomeController(@Autowired(required = false) EventService eventService) {
+    @Nullable
+    private final AppUserService appUserService;
+
+     public HomeController(
+            @Autowired(required = false) EventService eventService,
+            @Autowired(required = false) AppUserService appUserService) {  // ← agregar parámetro
         this.eventService = eventService;
+        this.appUserService = appUserService;       // ← inicializar
     }
 
     @GetMapping("/home")
@@ -37,7 +44,9 @@ public class HomeController {
             boolean isOrganizer = auth.getAuthorities().stream()
                     .anyMatch(a -> {
                         String r = a.getAuthority();
-                        return r.contains("ORGANIZER") || r.contains("ADMIN") || r.contains("STUDENT_LEADER");
+                        return r.contains("ORGANIZER") || r.contains("ADMIN")
+                        || r.contains("PROFESSOR") || r.contains("INSTRUCTOR")
+                        || r.contains("BU_STAFF");
                     });
             if (isOrganizer)
                 return "redirect:/dashboard";
@@ -73,8 +82,8 @@ public class HomeController {
                 .anyMatch(a -> {
                     String r = a.getAuthority();
                     return r.contains("ORGANIZER") || r.contains("ADMIN")
-                            || r.contains("PROFESSOR") || r.contains("WELFARE")
-                            || r.contains("STUDENT_LEADER") || r.equals("ROLE_EMPLOYEE");
+                        || r.contains("PROFESSOR") || r.contains("INSTRUCTOR")
+                        || r.contains("BU_STAFF") || r.contains("STUDENT_LEADER");
                 });
 
         if (!isOrganizer)
@@ -117,6 +126,12 @@ public class HomeController {
             model.addAttribute("totalPublished", 0);
             model.addAttribute("totalUpcoming", 0);
             model.addAttribute("totalInscriptions", 0);
+        }
+        boolean isAdmin = auth.getAuthorities().stream()
+                .anyMatch(a -> a.getAuthority().contains("ADMIN"));
+        if (isAdmin && appUserService != null) {
+            model.addAttribute("pendingLeaderRequests",
+                    appUserService.findPendingLeaderRequests().size());
         }
 
         return "dashboard";
