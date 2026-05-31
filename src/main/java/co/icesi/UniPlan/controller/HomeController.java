@@ -4,6 +4,8 @@ import co.icesi.UniPlan.model.mongo.Event;
 import co.icesi.UniPlan.service.EventService;
 import java.time.Instant;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
 import org.springframework.security.core.Authentication;
@@ -82,6 +84,10 @@ public class HomeController {
             try {
                 List<Event> events = eventService.findAll(null, null, null, null);
                 model.addAttribute("events", events);
+                model.addAttribute("canModifyByEventId", events.stream()
+                        .collect(Collectors.toMap(Event::getId, eventService::canModify)));
+                model.addAttribute("activeInscriptionsByEventId", events.stream()
+                        .collect(Collectors.toMap(Event::getId, eventService::activeInscriptionCount)));
 
                 long published = events.stream()
                         .filter(e -> "published".equalsIgnoreCase(e.getStatus())).count();
@@ -90,9 +96,7 @@ public class HomeController {
                                 && e.getStartDate().isAfter(Instant.now()))
                         .count();
                 long inscriptions = events.stream()
-                        .mapToLong(e -> e.getInscriptions() != null
-                                ? e.getInscriptions().size()
-                                : 0)
+                        .mapToLong(eventService::activeInscriptionCount)
                         .sum();
 
                 model.addAttribute("totalPublished", published);
@@ -100,12 +104,16 @@ public class HomeController {
                 model.addAttribute("totalInscriptions", inscriptions);
             } catch (Exception e) {
                 model.addAttribute("events", List.of());
+                model.addAttribute("canModifyByEventId", Map.of());
+                model.addAttribute("activeInscriptionsByEventId", Map.of());
                 model.addAttribute("totalPublished", 0);
                 model.addAttribute("totalUpcoming", 0);
                 model.addAttribute("totalInscriptions", 0);
             }
         } else {
             model.addAttribute("events", List.of());
+            model.addAttribute("canModifyByEventId", Map.of());
+            model.addAttribute("activeInscriptionsByEventId", Map.of());
             model.addAttribute("totalPublished", 0);
             model.addAttribute("totalUpcoming", 0);
             model.addAttribute("totalInscriptions", 0);
