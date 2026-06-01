@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>UniPlan — Solicitudes de Liderazgo</title>
+    <!-- reusar los mismos estilos del proyecto -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <style>
+        :root { --navy:#0d1b2a; --teal:#1a936f; --cream:#f5f0e8; --white:#fff; --border:#e2e8f0; --red:#e53e3e; }
+        * { box-sizing:border-box; margin:0; padding:0; }
+        body { font-family:'DM Sans',sans-serif; background:var(--cream); color:var(--navy); }
+        nav { background:var(--navy); padding:0 2.5rem; display:flex; align-items:center;
+              justify-content:space-between; height:64px; }
+        .brand { display:flex; align-items:center; gap:.6rem; text-decoration:none; }
+        .brand-icon { width:34px; height:34px; background:var(--teal); border-radius:8px;
+                      display:flex; align-items:center; justify-content:center; }
+        .brand-name { font-family:'Playfair Display',serif; color:#fff; font-size:1.3rem; }
+        .btn-nav { padding:.4rem .9rem; background:transparent; border:1.5px solid #334155;
+                   border-radius:8px; color:#94a3b8; font-size:.85rem; cursor:pointer;
+                   text-decoration:none; transition:border-color .2s,color .2s; }
+        .btn-nav:hover { border-color:var(--teal); color:#88d4ab; }
+        .page-header { background:var(--navy); padding:2.5rem; color:#fff; }
+        .page-header h1 { font-family:'Playfair Display',serif; font-size:2rem; }
+        .page-header p  { color:#94a3b8; margin-top:.3rem; }
+        .content { max-width:900px; margin:2rem auto; padding:0 2rem 4rem; }
+        .alert { padding:.75rem 1rem; border-radius:8px; font-size:.88rem; margin-bottom:1.25rem; }
+        .alert-success { background:#f0fdf4; color:#166534; border:1px solid #bbf7d0; }
+        .alert-error   { background:#fef2f2; color:var(--red); border:1px solid #fecaca; }
+        .card { background:var(--white); border-radius:16px; border:1px solid var(--border);
+                padding:1.5rem; margin-bottom:1rem; display:flex;
+                justify-content:space-between; align-items:center; gap:1rem; flex-wrap:wrap; }
+        .card-info h3  { font-size:1rem; font-weight:600; }
+        .card-info p   { font-size:.85rem; color:#6b7280; margin-top:.2rem; }
+        .card-info small { font-size:.78rem; color:#94a3b8; }
+        .actions { display:flex; gap:.6rem; }
+        .btn-approve { padding:.5rem 1.1rem; background:var(--teal); color:#fff; border:none;
+                       border-radius:8px; font-family:'DM Sans',sans-serif; font-weight:600;
+                       cursor:pointer; font-size:.88rem; }
+        .btn-approve:hover { background:#157a5c; }
+        .btn-reject  { padding:.5rem 1.1rem; background:transparent; color:var(--red);
+                       border:1.5px solid var(--red); border-radius:8px;
+                       font-family:'DM Sans',sans-serif; font-weight:600; cursor:pointer; font-size:.88rem; }
+        .btn-reject:hover { background:#fef2f2; }
+        .empty { text-align:center; padding:3rem; color:#6b7280; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a class="brand" th:href="@{/dashboard}">
+        <div class="brand-icon">📅</div>
+        <span class="brand-name">UniPlan</span>
+    </a>
+    <div style="display:flex;align-items:center;gap:1.25rem">
+        <a class="btn-nav" th:href="@{/dashboard}">← Dashboard</a>
+    </div>
+</nav>
+
+<div class="page-header">
+    <h1>🎓 Solicitudes de Liderazgo Estudiantil</h1>
+    <p>Revisa y gestiona las solicitudes de estudiantes que quieren ser líderes organizadores.</p>
+</div>
+
+<div class="content">
+
+    <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
+    <div th:if="${error}"   class="alert alert-error"   th:text="${error}"></div>
+
+    <div th:if="${#lists.isEmpty(requests)}" class="card empty">
+        <p>✅ No hay solicitudes pendientes por revisar.</p>
+    </div>
+
+    <div th:each="req : ${requests}" class="card">
+        <div class="card-info">
+            <h3 th:text="${req.institutionalEmail}">email@icesi.edu.co</h3>
+            <p>ID institucional: <strong th:text="${req.institutionalId}">000000</strong></p>
+            <small>Solicitado: <span th:text="${#temporals.format(req.requestedAt, 'dd/MM/yyyy HH:mm')}"></span></small>
+        </div>
+        <div class="actions">
+            <form th:action="@{/admin/leader-requests/{id}/approve(id=${req.id})}" method="post">
+                <button type="submit" class="btn-approve">✓ Aprobar</button>
+            </form>
+            <form th:action="@{/admin/leader-requests/{id}/reject(id=${req.id})}" method="post">
+                <button type="submit" class="btn-reject">✗ Rechazar</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
