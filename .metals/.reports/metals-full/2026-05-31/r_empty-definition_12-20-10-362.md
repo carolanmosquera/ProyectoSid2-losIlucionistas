@@ -1,3 +1,14 @@
+error id: file:///C:/Users/carol/Desktop/UNIVERSIDAD/SID2/proyectoIntegradorSid/ProyectoSid2-losIlucionistas/src/main/java/co/icesi/UniPlan/config/CustomUserDetailsService.java:
+file:///C:/Users/carol/Desktop/UNIVERSIDAD/SID2/proyectoIntegradorSid/ProyectoSid2-losIlucionistas/src/main/java/co/icesi/UniPlan/config/CustomUserDetailsService.java
+empty definition using pc, found symbol in pc: 
+empty definition using semanticdb
+empty definition using fallback
+non-local guesses:
+
+offset: 2025
+uri: file:///C:/Users/carol/Desktop/UNIVERSIDAD/SID2/proyectoIntegradorSid/ProyectoSid2-losIlucionistas/src/main/java/co/icesi/UniPlan/config/CustomUserDetailsService.java
+text:
+```scala
 package co.icesi.UniPlan.config;
 
 import co.icesi.UniPlan.model.User;
@@ -46,17 +57,16 @@ public class CustomUserDetailsService implements UserDetailsService {
     }
 
     private UserDetails buildFromMongoUser(AppUser user) {
-        String userType = user.getUserType() != null
+        String role = user.getUserType() != null
                 ? user.getUserType().toUpperCase()
                 : "STUDENT";
 
         // Mapear tipos de empleados organizadores al rol correcto
-        String role = switch (userType) {
+        String role = switch@@ (userType) {
             case "PROFESSOR"   -> "ORGANIZER_PROFESSOR";
             case "INSTRUCTOR"  -> "ORGANIZER_PROFESSOR";   // mismos permisos que profesor organizador
             case "BU_STAFF"    -> "ORGANIZER_BU_STAFF";
             case "ADMIN"       -> "ADMIN";
-            case "ORGANIZER_STUDENT_LEADER" -> "ORGANIZER_STUDENT_LEADER";
             default            -> userType; // STUDENT, ORGANIZER_STUDENT_LEADER, etc. pasan directo
         };
         return new org.springframework.security.core.userdetails.User(
@@ -66,3 +76,9 @@ public class CustomUserDetailsService implements UserDetailsService {
                 List.of(new SimpleGrantedAuthority("ROLE_" + role)));
     }
 }
+```
+
+
+#### Short summary: 
+
+empty definition using pc, found symbol in pc: 
